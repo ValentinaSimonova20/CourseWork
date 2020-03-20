@@ -96,6 +96,7 @@ namespace CourseWork
 
             adapter.SelectCommand = command;//выполняем команду
             adapter.Fill(table);//все полученные данные трансформируем внутрь объекта table
+#           //comm
 
             if(table.Rows.Count > 0) // если рядов больше, чем ноль, то данный пользователь есть в таблице
             {
