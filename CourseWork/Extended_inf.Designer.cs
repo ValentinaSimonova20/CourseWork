@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelDesires = new System.Windows.Forms.Label();
             this.AreaNameLabel = new System.Windows.Forms.Label();
             this.SqMetrLabel = new System.Windows.Forms.Label();
             this.RoomsAmountLabel = new System.Windows.Forms.Label();
@@ -47,7 +48,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.closeButton = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.labelDesires = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -79,6 +79,15 @@
             this.panel1.Size = new System.Drawing.Size(1016, 820);
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // labelDesires
+            // 
+            this.labelDesires.AutoSize = true;
+            this.labelDesires.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelDesires.Location = new System.Drawing.Point(42, 265);
+            this.labelDesires.Name = "labelDesires";
+            this.labelDesires.Size = new System.Drawing.Size(0, 31);
+            this.labelDesires.TabIndex = 18;
             // 
             // AreaNameLabel
             // 
@@ -172,6 +181,7 @@
             this.buttonSendRequest.TabIndex = 10;
             this.buttonSendRequest.Text = "Отправить заявку";
             this.buttonSendRequest.UseVisualStyleBackColor = false;
+            this.buttonSendRequest.Click += new System.EventHandler(this.buttonSendRequest_Click);
             // 
             // labelAreaName
             // 
@@ -244,7 +254,7 @@
             this.labelRole.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelRole.AutoSize = true;
             this.labelRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelRole.Location = new System.Drawing.Point(42, 148);
+            this.labelRole.Location = new System.Drawing.Point(44, 163);
             this.labelRole.Name = "labelRole";
             this.labelRole.Size = new System.Drawing.Size(139, 31);
             this.labelRole.TabIndex = 1;
@@ -283,15 +293,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Информация об объекте";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // labelDesires
-            // 
-            this.labelDesires.AutoSize = true;
-            this.labelDesires.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelDesires.Location = new System.Drawing.Point(42, 265);
-            this.labelDesires.Name = "labelDesires";
-            this.labelDesires.Size = new System.Drawing.Size(0, 31);
-            this.labelDesires.TabIndex = 18;
             // 
             // Extended_inf
             // 
