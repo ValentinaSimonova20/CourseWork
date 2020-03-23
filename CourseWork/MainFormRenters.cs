@@ -18,6 +18,7 @@ namespace CourseWork
         {
             InitializeComponent();
             label3.Text = "Здравствуйте, " + Client1.login;
+            requests_LoadData();
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -76,6 +77,38 @@ namespace CourseWork
                 Extended_inf Extended_inf = new Extended_inf();
                 Extended_inf.Show();
             }
+        }
+
+        private void requests_LoadData()
+        {
+            DB db = new DB();
+            db.openConnection();
+
+            String query = "SELECT [LeasingAppID.LeasingAppName], [Owners.Name],[Owners.Surname],[Requests.Accept] FROM (LeasingAppID INNER JOIN Requests ON LeasingAppID.id=Requests.object_id) INNER JOIN Owners ON Requests.Role_Login=Owners.Login WHERE Requests.object_id IN (SELECT id from LeasingAppID where Renter_id=(Select id from Renters WHERE Login=@login))";
+            OleDbCommand command = new OleDbCommand(query, db.getConnection());
+            command.Parameters.Add("@login", OleDbType.VarChar).Value = Client1.login;
+            OleDbDataReader reader = command.ExecuteReader();
+
+            List<string[]> data = new List<string[]>();
+
+            while (reader.Read())
+            {
+                data.Add(new string[4]);
+
+                data[data.Count - 1][0] = reader[0].ToString();
+                data[data.Count - 1][1] = reader[1].ToString();
+                data[data.Count - 1][2] = reader[2].ToString();
+                data[data.Count - 1][3] = reader[3].ToString();
+            }
+
+            reader.Close();
+            db.closeConnection();
+
+            foreach (string[] s in data)
+            {
+                dataGridView1.Rows.Add(s);
+            }
+
         }
     }
 }
