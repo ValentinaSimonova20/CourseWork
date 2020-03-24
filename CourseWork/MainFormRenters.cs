@@ -84,7 +84,7 @@ namespace CourseWork
             DB db = new DB();
             db.openConnection();
 
-            String query = "SELECT [LeasingAppID.LeasingAppName], [Owners.Name],[Owners.Surname],[Requests.Accept] FROM (LeasingAppID INNER JOIN Requests ON LeasingAppID.id=Requests.object_id) INNER JOIN Owners ON Requests.Role_Login=Owners.Login WHERE Requests.object_id IN (SELECT id from LeasingAppID where Renter_id=(Select id from Renters WHERE Login=@login))";
+            String query = "SELECT [LeasingAppID.LeasingAppName], [Owners.Name],[Owners.Surname],[Requests.Accept],[Requests.Request_id] FROM (LeasingAppID INNER JOIN Requests ON LeasingAppID.id=Requests.object_id) INNER JOIN Owners ON Requests.Role_Login=Owners.Login WHERE Requests.object_id IN (SELECT id from LeasingAppID where Renter_id=(Select id from Renters WHERE Login=@login))";
             OleDbCommand command = new OleDbCommand(query, db.getConnection());
             command.Parameters.Add("@login", OleDbType.VarChar).Value = Client1.login;
             OleDbDataReader reader = command.ExecuteReader();
@@ -93,12 +93,13 @@ namespace CourseWork
 
             while (reader.Read())
             {
-                data.Add(new string[4]);
+                data.Add(new string[5]);
 
                 data[data.Count - 1][0] = reader[0].ToString();
                 data[data.Count - 1][1] = reader[1].ToString();
                 data[data.Count - 1][2] = reader[2].ToString();
                 data[data.Count - 1][3] = reader[3].ToString();
+                data[data.Count - 1][4] = reader[4].ToString();
             }
 
             reader.Close();
@@ -109,6 +110,24 @@ namespace CourseWork
                 dataGridView1.Rows.Add(s);
             }
 
+        }
+
+        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "Accept")
+            {
+                DB db = new DB();
+                OleDbCommand command = new OleDbCommand("Update Requests SET Accept=true WHERE Request_id=@r_id", db.getConnection());
+                command.Parameters.Add("@r_id", OleDbType.Integer).Value = dataGridView1.Rows[e.RowIndex].Cells["Rid"].Value;
+                db.openConnection();
+
+                if (command.ExecuteNonQuery() == 1)
+                    MessageBox.Show("Вы принели заявку. Переходите к оплате.Нажмите дважды по предложению.");
+                else
+                    MessageBox.Show("Error");
+
+                db.closeConnection();
+            }
         }
     }
 }

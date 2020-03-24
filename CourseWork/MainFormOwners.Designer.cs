@@ -33,6 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFormOwners));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -65,11 +66,11 @@
             this.leasingAppIDBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.leasingAppIDTableAdapter = new CourseWork.DatabaseDataSetTableAdapters.LeasingAppIDTableAdapter();
             this.tableAdapterManager = new CourseWork.DatabaseDataSetTableAdapters.TableAdapterManager();
-            this.label6 = new System.Windows.Forms.Label();
             this.AreaName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClientSurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Accept = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Rid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.leasingAppIDDataGridView)).BeginInit();
@@ -96,6 +97,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(975, 631);
             this.panel1.TabIndex = 13;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.Location = new System.Drawing.Point(3, 361);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(0, 18);
+            this.label6.TabIndex = 7;
             // 
             // label4
             // 
@@ -124,7 +134,8 @@
             this.AreaName,
             this.ClientName,
             this.ClientSurname,
-            this.Accept});
+            this.Accept,
+            this.Rid});
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -134,10 +145,11 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ControlLight;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 158);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 151);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(423, 178);
+            this.dataGridView1.Size = new System.Drawing.Size(430, 228);
             this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
             // 
             // label1
             // 
@@ -171,9 +183,9 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.leasingAppIDDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
-            this.leasingAppIDDataGridView.Location = new System.Drawing.Point(520, 143);
+            this.leasingAppIDDataGridView.Location = new System.Drawing.Point(441, 143);
             this.leasingAppIDDataGridView.Name = "leasingAppIDDataGridView";
-            this.leasingAppIDDataGridView.Size = new System.Drawing.Size(443, 325);
+            this.leasingAppIDDataGridView.Size = new System.Drawing.Size(522, 325);
             this.leasingAppIDDataGridView.TabIndex = 1;
             this.leasingAppIDDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.leasingAppIDDataGridView_CellDoubleClick);
             // 
@@ -404,15 +416,6 @@
             this.tableAdapterManager.RequestsTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = CourseWork.DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(3, 361);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(0, 18);
-            this.label6.TabIndex = 7;
-            // 
             // AreaName
             // 
             this.AreaName.HeaderText = "AreaName";
@@ -434,6 +437,12 @@
             this.Accept.Name = "Accept";
             this.Accept.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Accept.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Rid
+            // 
+            this.Rid.HeaderText = "Rid";
+            this.Rid.Name = "Rid";
+            this.Rid.Visible = false;
             // 
             // MainFormOwners
             // 
@@ -501,5 +510,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ClientName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClientSurname;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Accept;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Rid;
     }
 }
