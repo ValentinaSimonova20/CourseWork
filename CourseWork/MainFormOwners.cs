@@ -115,5 +115,12 @@ namespace CourseWork
                 db.closeConnection();
             }
         }
+
+        private void buttonRequests_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ClientRequests clientRequestsForm = new ClientRequests();
+            clientRequestsForm.Show();
+        }
     }
 }

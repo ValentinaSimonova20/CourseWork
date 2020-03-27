@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFormRenters));
             this.buttonLogin = new System.Windows.Forms.Button();
             this.passField = new System.Windows.Forms.TextBox();
@@ -37,6 +37,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.LeasingAppName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OwnerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OwnerSurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Accept = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Rid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -71,11 +76,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.areasTableAdapter = new CourseWork.DatabaseDataSetTableAdapters.AreasTableAdapter();
             this.tableAdapterManager = new CourseWork.DatabaseDataSetTableAdapters.TableAdapterManager();
-            this.LeasingAppName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OwnerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OwnerSurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Accept = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Rid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.areasDataGridView)).BeginInit();
@@ -147,9 +147,9 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label6.Location = new System.Drawing.Point(0, 422);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(486, 18);
+            this.label6.Size = new System.Drawing.Size(470, 18);
             this.label6.TabIndex = 6;
-            this.label6.Text = "Если вы принимите заявку, то попадете на форму с оплатой аванса";
+            this.label6.Text = "Если вы примите заявку, то попадете на форму с оплатой аванса";
             // 
             // dataGridView1
             // 
@@ -165,6 +165,34 @@
             this.dataGridView1.Size = new System.Drawing.Size(429, 237);
             this.dataGridView1.TabIndex = 5;
             this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
+            // 
+            // LeasingAppName
+            // 
+            this.LeasingAppName.HeaderText = "LeasingAppName";
+            this.LeasingAppName.Name = "LeasingAppName";
+            // 
+            // OwnerName
+            // 
+            this.OwnerName.HeaderText = "OwnerName";
+            this.OwnerName.Name = "OwnerName";
+            // 
+            // OwnerSurname
+            // 
+            this.OwnerSurname.HeaderText = "OwnerSurname";
+            this.OwnerSurname.Name = "OwnerSurname";
+            // 
+            // Accept
+            // 
+            this.Accept.HeaderText = "Accept";
+            this.Accept.Name = "Accept";
+            this.Accept.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Accept.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Rid
+            // 
+            this.Rid.HeaderText = "Rid";
+            this.Rid.Name = "Rid";
+            this.Rid.Visible = false;
             // 
             // label5
             // 
@@ -211,14 +239,14 @@
             this.PricePerMonth,
             this.Describe});
             this.areasDataGridView.DataSource = this.areasBindingSource;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.areasDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.areasDataGridView.DefaultCellStyle = dataGridViewCellStyle1;
             this.areasDataGridView.Location = new System.Drawing.Point(438, 162);
             this.areasDataGridView.Name = "areasDataGridView";
             this.areasDataGridView.Size = new System.Drawing.Size(396, 237);
@@ -485,34 +513,6 @@
             this.tableAdapterManager.RentersTableAdapter = null;
             this.tableAdapterManager.RequestsTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = CourseWork.DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // LeasingAppName
-            // 
-            this.LeasingAppName.HeaderText = "LeasingAppName";
-            this.LeasingAppName.Name = "LeasingAppName";
-            // 
-            // OwnerName
-            // 
-            this.OwnerName.HeaderText = "OwnerName";
-            this.OwnerName.Name = "OwnerName";
-            // 
-            // OwnerSurname
-            // 
-            this.OwnerSurname.HeaderText = "OwnerSurname";
-            this.OwnerSurname.Name = "OwnerSurname";
-            // 
-            // Accept
-            // 
-            this.Accept.HeaderText = "Accept";
-            this.Accept.Name = "Accept";
-            this.Accept.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Accept.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // Rid
-            // 
-            this.Rid.HeaderText = "Rid";
-            this.Rid.Name = "Rid";
-            this.Rid.Visible = false;
             // 
             // MainFormRenters
             // 

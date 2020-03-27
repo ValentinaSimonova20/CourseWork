@@ -29,14 +29,20 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFormOwners));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonRequests = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.AreaName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClientSurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Accept = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Rid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.leasingAppIDDataGridView = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,11 +72,6 @@
             this.leasingAppIDBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.leasingAppIDTableAdapter = new CourseWork.DatabaseDataSetTableAdapters.LeasingAppIDTableAdapter();
             this.tableAdapterManager = new CourseWork.DatabaseDataSetTableAdapters.TableAdapterManager();
-            this.AreaName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClientSurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Accept = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Rid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.leasingAppIDDataGridView)).BeginInit();
@@ -84,6 +85,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(8)))), ((int)(((byte)(24)))));
+            this.panel1.Controls.Add(this.buttonRequests);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label2);
@@ -97,6 +99,24 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(975, 631);
             this.panel1.TabIndex = 13;
+            // 
+            // buttonRequests
+            // 
+            this.buttonRequests.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(157)))), ((int)(((byte)(39)))));
+            this.buttonRequests.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonRequests.FlatAppearance.BorderSize = 0;
+            this.buttonRequests.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(136)))), ((int)(((byte)(0)))));
+            this.buttonRequests.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(164)))), ((int)(((byte)(0)))));
+            this.buttonRequests.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonRequests.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonRequests.ForeColor = System.Drawing.Color.White;
+            this.buttonRequests.Location = new System.Drawing.Point(12, 432);
+            this.buttonRequests.Name = "buttonRequests";
+            this.buttonRequests.Size = new System.Drawing.Size(331, 47);
+            this.buttonRequests.TabIndex = 8;
+            this.buttonRequests.Text = "Заявки, которые отправляли вы";
+            this.buttonRequests.UseVisualStyleBackColor = false;
+            this.buttonRequests.Click += new System.EventHandler(this.buttonRequests_Click);
             // 
             // label6
             // 
@@ -136,20 +156,48 @@
             this.ClientSurname,
             this.Accept,
             this.Rid});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ControlLight;
             this.dataGridView1.Location = new System.Drawing.Point(3, 151);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(430, 228);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
+            // 
+            // AreaName
+            // 
+            this.AreaName.HeaderText = "AreaName";
+            this.AreaName.Name = "AreaName";
+            // 
+            // ClientName
+            // 
+            this.ClientName.HeaderText = "ClientName";
+            this.ClientName.Name = "ClientName";
+            // 
+            // ClientSurname
+            // 
+            this.ClientSurname.HeaderText = "ClientSurname";
+            this.ClientSurname.Name = "ClientSurname";
+            // 
+            // Accept
+            // 
+            this.Accept.HeaderText = "Accept";
+            this.Accept.Name = "Accept";
+            this.Accept.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Accept.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Rid
+            // 
+            this.Rid.HeaderText = "Rid";
+            this.Rid.Name = "Rid";
+            this.Rid.Visible = false;
             // 
             // label1
             // 
@@ -175,14 +223,14 @@
             this.SpaceSquare,
             this.Describe});
             this.leasingAppIDDataGridView.DataSource = this.leasingAppIDBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.leasingAppIDDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.leasingAppIDDataGridView.DefaultCellStyle = dataGridViewCellStyle4;
             this.leasingAppIDDataGridView.Location = new System.Drawing.Point(441, 143);
             this.leasingAppIDDataGridView.Name = "leasingAppIDDataGridView";
             this.leasingAppIDDataGridView.Size = new System.Drawing.Size(522, 325);
@@ -416,34 +464,6 @@
             this.tableAdapterManager.RequestsTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = CourseWork.DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // AreaName
-            // 
-            this.AreaName.HeaderText = "AreaName";
-            this.AreaName.Name = "AreaName";
-            // 
-            // ClientName
-            // 
-            this.ClientName.HeaderText = "ClientName";
-            this.ClientName.Name = "ClientName";
-            // 
-            // ClientSurname
-            // 
-            this.ClientSurname.HeaderText = "ClientSurname";
-            this.ClientSurname.Name = "ClientSurname";
-            // 
-            // Accept
-            // 
-            this.Accept.HeaderText = "Accept";
-            this.Accept.Name = "Accept";
-            this.Accept.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Accept.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // Rid
-            // 
-            this.Rid.HeaderText = "Rid";
-            this.Rid.Name = "Rid";
-            this.Rid.Visible = false;
-            // 
             // MainFormOwners
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -511,5 +531,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ClientSurname;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Accept;
         private System.Windows.Forms.DataGridViewTextBoxColumn Rid;
+        private System.Windows.Forms.Button buttonRequests;
     }
 }
