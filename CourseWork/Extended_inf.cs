@@ -31,26 +31,28 @@ namespace CourseWork
 
         private void Extended_inf_Load(object sender, EventArgs e)
         {
-            DB db = new DB();
 
-            DataTable table = new DataTable();
-            OleDbDataAdapter adapter = new OleDbDataAdapter();
-            String TableRole;
-            if (Client1.role == "Renters")
-                TableRole = "Owners";
-            else
-                TableRole = "Renters";
+                DB db = new DB();
 
-            String query = "SELECT Name, Surname FROM " +TableRole+" WHERE id=@id";
-            OleDbCommand command = new OleDbCommand(query, db.getConnection());
-            command.Parameters.Add("@id", OleDbType.Integer).Value = SelectedArea.person_id;
+                DataTable table = new DataTable();
+                OleDbDataAdapter adapter = new OleDbDataAdapter();
+                String TableRole;
+                if (Client1.role == "Renters")
+                    TableRole = "Owners";
+                else
+                    TableRole = "Renters";
 
-            adapter.SelectCommand = command;//выполняем команду
-            adapter.Fill(table);
+                String query = "SELECT Name, Surname FROM " + TableRole + " WHERE id=@id";
+                OleDbCommand command = new OleDbCommand(query, db.getConnection());
+                command.Parameters.Add("@id", OleDbType.Integer).Value = SelectedArea.person_id;
 
-            DataRow NameSurname = table.Rows[0];
-            String NameS = NameSurname["Name"] + " " + NameSurname["Surname"];
-            OwnerLabel.Text = NameS;
+                adapter.SelectCommand = command;//выполняем команду
+                adapter.Fill(table);
+
+                DataRow NameSurname = table.Rows[0];
+                String NameS = NameSurname["Name"] + " " + NameSurname["Surname"];
+                OwnerLabel.Text = NameS;
+
             AreaNameLabel.Text = SelectedArea.areaName;
             SqMetrLabel.Text = SelectedArea.areaSpace.ToString();
             RoomsAmountLabel.Text = SelectedArea.rooms.ToString();
@@ -58,16 +60,25 @@ namespace CourseWork
             AllPriceLabel.Text = (SelectedArea.price * SelectedArea.areaSpace).ToString();
             DescribeLabel.Text = SelectedArea.describe;
 
-            if(Client1.role == "Owners")
+            if(Client1.role == "Owners" )
             {
                 labelRole.Text = "Заказчик";
                 labelAreaName.Text = "Название заказа";
                 labelDesires.Text = "Пожелания заказчика:";
             }
+
+            if (SelectedArea.dgvType == "requests")
+            {
+                buttonSendRequest.Text = "Оплатить";
+                label1.Text = "Оплата";
+            }
         }
 
         private void buttonSendRequest_Click(object sender, EventArgs e)
         {
+
+            //Если текст кнопки "Отправить заявку, то одно действие. Если текст кнопки - оплатить, то другое действие"
+
             String ClientRole = Client1.role;
             int objectId = SelectedArea.area_id; // Если пользователь Owner, то objectId - ID запроса пользователя. Если пользователь renter, то object_id - id помещения 
             String Role_Login = Client1.login;

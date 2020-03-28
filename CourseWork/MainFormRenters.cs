@@ -73,6 +73,7 @@ namespace CourseWork
                 SelectedArea.price = (int)areasDataGridView.Rows[e.RowIndex].Cells["PricePerMonth"].Value;
                 SelectedArea.rooms = (int)areasDataGridView.Rows[e.RowIndex].Cells["Rooms"].Value;
                 SelectedArea.describe = areasDataGridView.Rows[e.RowIndex].Cells["Describe"].Value.ToString();
+                SelectedArea.dgvType = "areas";
                 this.Hide();
                 Extended_inf Extended_inf = new Extended_inf();
                 Extended_inf.Show();
@@ -84,7 +85,11 @@ namespace CourseWork
             DB db = new DB();
             db.openConnection();
 
-            String query = "SELECT [LeasingAppID.LeasingAppName], [Owners.Name],[Owners.Surname],[Requests.Accept],[Requests.Request_id] FROM (LeasingAppID INNER JOIN Requests ON LeasingAppID.id=Requests.object_id) INNER JOIN Owners ON Requests.Role_Login=Owners.Login WHERE Requests.object_id IN (SELECT id from LeasingAppID where Renter_id=(Select id from Renters WHERE Login=@login))";
+            String query = "SELECT [LeasingAppID.id],[LeasingAppID.LeasingAppName]," +
+                "[LeasingAppID.SpaceOfArea_squareMeter],[LeasingAppID.Describe]," +
+                "[LeasingAppID.Rooms],[LeasingAppID.PricePerMonth],[Owners.id], " +
+                "[Owners.Name],[Owners.Surname],[Requests.Accept],[Requests.Request_id] " +
+                "FROM (LeasingAppID INNER JOIN Requests ON LeasingAppID.id=Requests.object_id) INNER JOIN Owners ON Requests.Role_Login=Owners.Login WHERE Requests.object_id IN (SELECT id from LeasingAppID where Renter_id=(Select id from Renters WHERE Login=@login))";
             OleDbCommand command = new OleDbCommand(query, db.getConnection());
             command.Parameters.Add("@login", OleDbType.VarChar).Value = Client1.login;
             OleDbDataReader reader = command.ExecuteReader();
@@ -93,13 +98,20 @@ namespace CourseWork
 
             while (reader.Read())
             {
-                data.Add(new string[5]);
+                data.Add(new string[11]);
 
                 data[data.Count - 1][0] = reader[0].ToString();
                 data[data.Count - 1][1] = reader[1].ToString();
                 data[data.Count - 1][2] = reader[2].ToString();
                 data[data.Count - 1][3] = reader[3].ToString();
                 data[data.Count - 1][4] = reader[4].ToString();
+                data[data.Count - 1][5] = reader[5].ToString();
+                data[data.Count - 1][6] = reader[6].ToString();
+                data[data.Count - 1][7] = reader[7].ToString();
+                data[data.Count - 1][8] = reader[8].ToString();
+                data[data.Count - 1][9] = reader[9].ToString();
+                data[data.Count - 1][10] = reader[10].ToString();
+ 
             }
 
             reader.Close();
@@ -127,6 +139,37 @@ namespace CourseWork
                     MessageBox.Show("Error");
 
                 db.closeConnection();
+            }
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            {
+                dataGridView1.CurrentRow.Selected = true;
+                if(dataGridView1.Rows[e.RowIndex].Cells["Accept"].Value.ToString()=="False")
+                {
+                    MessageBox.Show("Вы не приняли данную заявку, поэтому не можете оплатить ее.");
+                    return;
+                }
+
+                SelectedArea.area_id = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["LeasingApp_id"].Value.ToString());
+                SelectedArea.person_id = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["Owners_id"].Value.ToString());
+                SelectedArea.areaName = dataGridView1.Rows[e.RowIndex].Cells["LeasingAppName"].Value.ToString();
+                SelectedArea.areaSpace = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["areaSpace"].Value.ToString());
+
+                SelectedArea.price = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["price"].Value.ToString());
+                SelectedArea.rooms = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["rooms_"].Value.ToString());
+                SelectedArea.describe = dataGridView1.Rows[e.RowIndex].Cells["descr"].Value.ToString();
+                SelectedArea.dgvType = "requests";
+                this.Hide();
+                Extended_inf Extended_inf = new Extended_inf();
+                Extended_inf.Show();
+
+
+
+
             }
         }
     }

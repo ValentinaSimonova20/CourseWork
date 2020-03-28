@@ -37,11 +37,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.LeasingAppName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OwnerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OwnerSurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Accept = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Rid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -76,6 +71,17 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.areasTableAdapter = new CourseWork.DatabaseDataSetTableAdapters.AreasTableAdapter();
             this.tableAdapterManager = new CourseWork.DatabaseDataSetTableAdapters.TableAdapterManager();
+            this.LeasingApp_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LeasingAppName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.areaSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rooms_ = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Owners_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OwnerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OwnerSurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Accept = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Rid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.areasDataGridView)).BeginInit();
@@ -155,44 +161,23 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.LeasingApp_id,
             this.LeasingAppName,
+            this.areaSpace,
+            this.descr,
+            this.rooms_,
+            this.price,
+            this.Owners_id,
             this.OwnerName,
             this.OwnerSurname,
             this.Accept,
             this.Rid});
-            this.dataGridView1.Location = new System.Drawing.Point(3, 162);
+            this.dataGridView1.Location = new System.Drawing.Point(10, 162);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(429, 237);
+            this.dataGridView1.Size = new System.Drawing.Size(400, 237);
             this.dataGridView1.TabIndex = 5;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
-            // 
-            // LeasingAppName
-            // 
-            this.LeasingAppName.HeaderText = "LeasingAppName";
-            this.LeasingAppName.Name = "LeasingAppName";
-            // 
-            // OwnerName
-            // 
-            this.OwnerName.HeaderText = "OwnerName";
-            this.OwnerName.Name = "OwnerName";
-            // 
-            // OwnerSurname
-            // 
-            this.OwnerSurname.HeaderText = "OwnerSurname";
-            this.OwnerSurname.Name = "OwnerSurname";
-            // 
-            // Accept
-            // 
-            this.Accept.HeaderText = "Accept";
-            this.Accept.Name = "Accept";
-            this.Accept.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Accept.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // Rid
-            // 
-            this.Rid.HeaderText = "Rid";
-            this.Rid.Name = "Rid";
-            this.Rid.Visible = false;
             // 
             // label5
             // 
@@ -247,9 +232,9 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.areasDataGridView.DefaultCellStyle = dataGridViewCellStyle1;
-            this.areasDataGridView.Location = new System.Drawing.Point(438, 162);
+            this.areasDataGridView.Location = new System.Drawing.Point(416, 162);
             this.areasDataGridView.Name = "areasDataGridView";
-            this.areasDataGridView.Size = new System.Drawing.Size(396, 237);
+            this.areasDataGridView.Size = new System.Drawing.Size(415, 237);
             this.areasDataGridView.TabIndex = 1;
             this.areasDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.areasDataGridView_CellDoubleClick);
             // 
@@ -514,6 +499,70 @@
             this.tableAdapterManager.RequestsTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = CourseWork.DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // LeasingApp_id
+            // 
+            this.LeasingApp_id.HeaderText = "LeasingApp_id";
+            this.LeasingApp_id.Name = "LeasingApp_id";
+            this.LeasingApp_id.Visible = false;
+            // 
+            // LeasingAppName
+            // 
+            this.LeasingAppName.HeaderText = "LeasingAppName";
+            this.LeasingAppName.Name = "LeasingAppName";
+            // 
+            // areaSpace
+            // 
+            this.areaSpace.HeaderText = "areaSpace";
+            this.areaSpace.Name = "areaSpace";
+            this.areaSpace.Visible = false;
+            // 
+            // descr
+            // 
+            this.descr.HeaderText = "descr";
+            this.descr.Name = "descr";
+            this.descr.Visible = false;
+            // 
+            // rooms_
+            // 
+            this.rooms_.HeaderText = "rooms_";
+            this.rooms_.Name = "rooms_";
+            this.rooms_.Visible = false;
+            // 
+            // price
+            // 
+            this.price.HeaderText = "price";
+            this.price.Name = "price";
+            this.price.Visible = false;
+            // 
+            // Owners_id
+            // 
+            this.Owners_id.HeaderText = "Owners_id";
+            this.Owners_id.Name = "Owners_id";
+            this.Owners_id.Visible = false;
+            // 
+            // OwnerName
+            // 
+            this.OwnerName.HeaderText = "OwnerName";
+            this.OwnerName.Name = "OwnerName";
+            // 
+            // OwnerSurname
+            // 
+            this.OwnerSurname.HeaderText = "OwnerSurname";
+            this.OwnerSurname.Name = "OwnerSurname";
+            // 
+            // Accept
+            // 
+            this.Accept.HeaderText = "Accept";
+            this.Accept.Name = "Accept";
+            this.Accept.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Accept.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Rid
+            // 
+            this.Rid.HeaderText = "Rid";
+            this.Rid.Name = "Rid";
+            this.Rid.Visible = false;
+            // 
             // MainFormRenters
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -591,7 +640,13 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LeasingApp_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn LeasingAppName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn areaSpace;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rooms_;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Owners_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn OwnerName;
         private System.Windows.Forms.DataGridViewTextBoxColumn OwnerSurname;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Accept;
