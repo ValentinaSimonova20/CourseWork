@@ -35,21 +35,10 @@
             this.passField = new System.Windows.Forms.TextBox();
             this.loginField = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.areasDataGridView = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Owner_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AreaName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SpaceOfArea_squareMeter = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Rooms = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PricePerMonth = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Describe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.areasBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.DataSet = new CourseWork.DatabaseDataSet();
             this.panel3 = new System.Windows.Forms.Panel();
             this.closeButton = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -69,29 +58,26 @@
             this.areasBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.areasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.DataSet = new CourseWork.DatabaseDataSet();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Owner_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AreaName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SpaceOfArea_squareMeter = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rooms = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PricePerMonth = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.areasTableAdapter = new CourseWork.DatabaseDataSetTableAdapters.AreasTableAdapter();
             this.tableAdapterManager = new CourseWork.DatabaseDataSetTableAdapters.TableAdapterManager();
-            this.LeasingApp_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LeasingAppName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.areaSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rooms_ = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Owners_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OwnerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OwnerSurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Accept = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Rid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.areasDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.areasBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DataSet)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.areasBindingNavigator)).BeginInit();
             this.areasBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.areasBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonLogin
@@ -132,9 +118,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(8)))), ((int)(((byte)(24)))));
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.checkBox1);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.areasDataGridView);
@@ -147,53 +131,11 @@
             this.panel1.TabIndex = 12;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(0, 422);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(470, 18);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Если вы примите заявку, то попадете на форму с оплатой аванса";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.LeasingApp_id,
-            this.LeasingAppName,
-            this.areaSpace,
-            this.descr,
-            this.rooms_,
-            this.price,
-            this.Owners_id,
-            this.OwnerName,
-            this.OwnerSurname,
-            this.Accept,
-            this.Rid});
-            this.dataGridView1.Location = new System.Drawing.Point(10, 162);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(400, 237);
-            this.dataGridView1.TabIndex = 5;
-            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
-            this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(48, 124);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(254, 24);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Заявки, отправленные вам";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(480, 124);
+            this.label4.Location = new System.Drawing.Point(122, 125);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(221, 24);
             this.label4.TabIndex = 3;
@@ -203,7 +145,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(176, 470);
+            this.label1.Location = new System.Drawing.Point(109, 469);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(667, 25);
             this.label1.TabIndex = 2;
@@ -232,49 +174,11 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.areasDataGridView.DefaultCellStyle = dataGridViewCellStyle1;
-            this.areasDataGridView.Location = new System.Drawing.Point(416, 162);
+            this.areasDataGridView.Location = new System.Drawing.Point(126, 162);
             this.areasDataGridView.Name = "areasDataGridView";
-            this.areasDataGridView.Size = new System.Drawing.Size(415, 237);
+            this.areasDataGridView.Size = new System.Drawing.Size(449, 239);
             this.areasDataGridView.TabIndex = 1;
             this.areasDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.areasDataGridView_CellDoubleClick);
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "id";
-            this.id.Name = "id";
-            this.id.Visible = false;
-            // 
-            // Owner_id
-            // 
-            this.Owner_id.DataPropertyName = "Owner_id";
-            this.Owner_id.HeaderText = "Owner_id";
-            this.Owner_id.Name = "Owner_id";
-            this.Owner_id.Visible = false;
-            // 
-            // AreaName
-            // 
-            this.AreaName.DataPropertyName = "AreaName";
-            this.AreaName.HeaderText = "AreaName";
-            this.AreaName.Name = "AreaName";
-            // 
-            // SpaceOfArea_squareMeter
-            // 
-            this.SpaceOfArea_squareMeter.DataPropertyName = "SpaceOfArea_squareMeter";
-            this.SpaceOfArea_squareMeter.HeaderText = "SpaceOfArea_squareMeter";
-            this.SpaceOfArea_squareMeter.Name = "SpaceOfArea_squareMeter";
-            // 
-            // Rooms
-            // 
-            this.Rooms.DataPropertyName = "Rooms";
-            this.Rooms.HeaderText = "Rooms";
-            this.Rooms.Name = "Rooms";
-            // 
-            // PricePerMonth
-            // 
-            this.PricePerMonth.DataPropertyName = "PricePerMonth";
-            this.PricePerMonth.HeaderText = "PricePerMonth";
-            this.PricePerMonth.Name = "PricePerMonth";
             // 
             // Describe
             // 
@@ -282,16 +186,6 @@
             this.Describe.HeaderText = "Describe";
             this.Describe.Name = "Describe";
             this.Describe.Visible = false;
-            // 
-            // areasBindingSource
-            // 
-            this.areasBindingSource.DataMember = "Areas";
-            this.areasBindingSource.DataSource = this.DataSet;
-            // 
-            // DataSet
-            // 
-            this.DataSet.DataSetName = "DatabaseDataSet";
-            this.DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // panel3
             // 
@@ -485,6 +379,65 @@
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(126, 423);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(216, 17);
+            this.checkBox1.TabIndex = 4;
+            this.checkBox1.Text = "Показать заявки, отправленные мне";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.Click += new System.EventHandler(this.checkBox1_Click);
+            // 
+            // areasBindingSource
+            // 
+            this.areasBindingSource.DataMember = "Areas";
+            this.areasBindingSource.DataSource = this.DataSet;
+            // 
+            // DataSet
+            // 
+            this.DataSet.DataSetName = "DatabaseDataSet";
+            this.DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.Visible = false;
+            // 
+            // Owner_id
+            // 
+            this.Owner_id.DataPropertyName = "Owner_id";
+            this.Owner_id.HeaderText = "Owner_id";
+            this.Owner_id.Name = "Owner_id";
+            this.Owner_id.Visible = false;
+            // 
+            // AreaName
+            // 
+            this.AreaName.DataPropertyName = "AreaName";
+            this.AreaName.HeaderText = "AreaName";
+            this.AreaName.Name = "AreaName";
+            // 
+            // SpaceOfArea_squareMeter
+            // 
+            this.SpaceOfArea_squareMeter.DataPropertyName = "SpaceOfArea_squareMeter";
+            this.SpaceOfArea_squareMeter.HeaderText = "SpaceOfArea_squareMeter";
+            this.SpaceOfArea_squareMeter.Name = "SpaceOfArea_squareMeter";
+            // 
+            // Rooms
+            // 
+            this.Rooms.DataPropertyName = "Rooms";
+            this.Rooms.HeaderText = "Rooms";
+            this.Rooms.Name = "Rooms";
+            // 
+            // PricePerMonth
+            // 
+            this.PricePerMonth.DataPropertyName = "PricePerMonth";
+            this.PricePerMonth.HeaderText = "PricePerMonth";
+            this.PricePerMonth.Name = "PricePerMonth";
+            // 
             // areasTableAdapter
             // 
             this.areasTableAdapter.ClearBeforeFill = true;
@@ -493,75 +446,12 @@
             // 
             this.tableAdapterManager.AreasTableAdapter = this.areasTableAdapter;
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.ContractsTableAdapter = null;
             this.tableAdapterManager.LeasingAppIDTableAdapter = null;
             this.tableAdapterManager.OwnersTableAdapter = null;
             this.tableAdapterManager.RentersTableAdapter = null;
             this.tableAdapterManager.RequestsTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = CourseWork.DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // LeasingApp_id
-            // 
-            this.LeasingApp_id.HeaderText = "LeasingApp_id";
-            this.LeasingApp_id.Name = "LeasingApp_id";
-            this.LeasingApp_id.Visible = false;
-            // 
-            // LeasingAppName
-            // 
-            this.LeasingAppName.HeaderText = "LeasingAppName";
-            this.LeasingAppName.Name = "LeasingAppName";
-            // 
-            // areaSpace
-            // 
-            this.areaSpace.HeaderText = "areaSpace";
-            this.areaSpace.Name = "areaSpace";
-            this.areaSpace.Visible = false;
-            // 
-            // descr
-            // 
-            this.descr.HeaderText = "descr";
-            this.descr.Name = "descr";
-            this.descr.Visible = false;
-            // 
-            // rooms_
-            // 
-            this.rooms_.HeaderText = "rooms_";
-            this.rooms_.Name = "rooms_";
-            this.rooms_.Visible = false;
-            // 
-            // price
-            // 
-            this.price.HeaderText = "price";
-            this.price.Name = "price";
-            this.price.Visible = false;
-            // 
-            // Owners_id
-            // 
-            this.Owners_id.HeaderText = "Owners_id";
-            this.Owners_id.Name = "Owners_id";
-            this.Owners_id.Visible = false;
-            // 
-            // OwnerName
-            // 
-            this.OwnerName.HeaderText = "OwnerName";
-            this.OwnerName.Name = "OwnerName";
-            // 
-            // OwnerSurname
-            // 
-            this.OwnerSurname.HeaderText = "OwnerSurname";
-            this.OwnerSurname.Name = "OwnerSurname";
-            // 
-            // Accept
-            // 
-            this.Accept.HeaderText = "Accept";
-            this.Accept.Name = "Accept";
-            this.Accept.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Accept.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // Rid
-            // 
-            this.Rid.HeaderText = "Rid";
-            this.Rid.Name = "Rid";
-            this.Rid.Visible = false;
             // 
             // MainFormRenters
             // 
@@ -582,10 +472,7 @@
             this.Load += new System.EventHandler(this.MainFormRenters_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.areasDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.areasBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DataSet)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.areasBindingNavigator)).EndInit();
@@ -593,6 +480,8 @@
             this.areasBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.areasBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -636,20 +525,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Rooms;
         private System.Windows.Forms.DataGridViewTextBoxColumn PricePerMonth;
         private System.Windows.Forms.DataGridViewTextBoxColumn Describe;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LeasingApp_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LeasingAppName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn areaSpace;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descr;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rooms_;
-        private System.Windows.Forms.DataGridViewTextBoxColumn price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Owners_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OwnerName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OwnerSurname;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Accept;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Rid;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

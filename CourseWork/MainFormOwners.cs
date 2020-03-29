@@ -17,7 +17,7 @@ namespace CourseWork
         public MainFormOwners()
         {
             InitializeComponent();
-            label3.Text ="Здравствуйте, "+Client1.login;
+
             requests_LoadData();
 
 
@@ -73,7 +73,7 @@ namespace CourseWork
 
             String query = "SELECT [Areas.AreaName], [Renters.Name],[Renters.Surname],[Requests.Accept],[Requests.Request_id] FROM (Areas INNER JOIN Requests ON Areas.id=Requests.object_id) INNER JOIN Renters ON Requests.Role_Login=Renters.Login WHERE Requests.object_id IN (SELECT id from Areas where Owner_id=(Select id from Owners WHERE Login=@login))";
             OleDbCommand command = new OleDbCommand(query, db.getConnection());
-            command.Parameters.Add("@login", OleDbType.VarChar).Value = Client1.login;
+            command.Parameters.Add("@login", OleDbType.VarChar).Value = Client1.id;
             OleDbDataReader reader= command.ExecuteReader();
 
             List<string[]> data = new List<string[]>();

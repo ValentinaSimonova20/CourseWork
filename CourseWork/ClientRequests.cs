@@ -38,7 +38,7 @@ namespace CourseWork
                 query = "SELECT [Requests.Request_id],[LeasingAppID.LeasingAppName], [Requests.Accept] FROM (LeasingAppID INNER JOIN Requests ON LeasingAppID.id=Requests.object_id) WHERE Requests.Role_Login=@r_L";
             }
             OleDbCommand command = new OleDbCommand(query, db.getConnection());
-            command.Parameters.Add("@login", OleDbType.VarChar).Value = Client1.login;
+            command.Parameters.Add("@login", OleDbType.VarChar).Value = Client1.id;
             OleDbDataReader reader = command.ExecuteReader();
 
             List<string[]> data = new List<string[]>();

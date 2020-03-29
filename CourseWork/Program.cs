@@ -26,7 +26,7 @@ namespace CourseWork
     }
     static class Client1
     {
-        public static string login { get; set; }
+        public static int id { get; set; }
         public static string role { get; set; }
     }
 

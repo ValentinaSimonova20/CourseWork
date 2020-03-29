@@ -88,26 +88,30 @@ namespace CourseWork
             }
 
 
-            OleDbDataAdapter adapter = new OleDbDataAdapter();
-            OleDbCommand command = new OleDbCommand("SELECT * FROM "+role+" WHERE Login = @uL AND Pass= @uP",db.getConnection());
+
+            OleDbCommand command = new OleDbCommand("SELECT id FROM "+role+" WHERE Login = @uL AND Pass= @uP",db.getConnection());
 
             command.Parameters.Add("@uL", OleDbType.VarChar).Value = loginUser; //В заглушку uL помещаем нужную переменную. Заглушки для безопасности 
             command.Parameters.Add("@uP", OleDbType.VarChar).Value = passUser; //В заглушку uP помещаем нужную переменную
 
-            adapter.SelectCommand = command;//выполняем команду
-            adapter.Fill(table);//все полученные данные трансформируем внутрь объекта table
-         //comm
+            db.openConnection();
+            OleDbDataReader reader = command.ExecuteReader();
+           
 
-            if(table.Rows.Count > 0) // если рядов больше, чем ноль, то данный пользователь есть в таблице
+
+            if (reader.Read()) // если рядов больше, чем ноль, то данный пользователь есть в таблице
             {
+               
                 this.Hide();
-                Client1.login = loginUser;
+                Client1.id = (int)reader[0];
                 Client1.role = role;
+                db.closeConnection();
                 if (role == "Renters")
                 {
                     
                     MainFormRenters mainForm = new MainFormRenters();                 
                     mainForm.Show();
+                   
                 }
                 else
                 {
@@ -120,6 +124,7 @@ namespace CourseWork
             else
             {
                 MessageBox.Show("No");
+                db.closeConnection();
             }
 
         }
