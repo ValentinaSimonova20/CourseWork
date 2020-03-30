@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFormRenters));
             this.buttonLogin = new System.Windows.Forms.Button();
             this.passField = new System.Windows.Forms.TextBox();
             this.loginField = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.areasDataGridView = new System.Windows.Forms.DataGridView();
@@ -58,7 +59,6 @@
             this.areasBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.areasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DataSet = new CourseWork.DatabaseDataSet();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,6 +69,16 @@
             this.PricePerMonth = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.areasTableAdapter = new CourseWork.DatabaseDataSetTableAdapters.AreasTableAdapter();
             this.tableAdapterManager = new CourseWork.DatabaseDataSetTableAdapters.TableAdapterManager();
+            this.label5 = new System.Windows.Forms.Label();
+            this.RequestsGridView = new System.Windows.Forms.DataGridView();
+            this.id_a = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_own = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Area_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.roomsAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.square = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price_perMonth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Accept = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.descr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.areasDataGridView)).BeginInit();
             this.panel3.SuspendLayout();
@@ -78,6 +88,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.areasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RequestsGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonLogin
@@ -118,6 +129,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(8)))), ((int)(((byte)(24)))));
+            this.panel1.Controls.Add(this.RequestsGridView);
+            this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.checkBox1);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label1);
@@ -131,11 +144,22 @@
             this.panel1.TabIndex = 12;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(410, 423);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(216, 17);
+            this.checkBox1.TabIndex = 4;
+            this.checkBox1.Text = "Показать заявки, отправленные мне";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.Click += new System.EventHandler(this.checkBox1_Click);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(122, 125);
+            this.label4.Location = new System.Drawing.Point(382, 125);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(221, 24);
             this.label4.TabIndex = 3;
@@ -145,7 +169,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(109, 469);
+            this.label1.Location = new System.Drawing.Point(105, 527);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(667, 25);
             this.label1.TabIndex = 2;
@@ -166,17 +190,17 @@
             this.PricePerMonth,
             this.Describe});
             this.areasDataGridView.DataSource = this.areasBindingSource;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.areasDataGridView.DefaultCellStyle = dataGridViewCellStyle1;
-            this.areasDataGridView.Location = new System.Drawing.Point(126, 162);
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.areasDataGridView.DefaultCellStyle = dataGridViewCellStyle6;
+            this.areasDataGridView.Location = new System.Drawing.Point(422, 162);
             this.areasDataGridView.Name = "areasDataGridView";
-            this.areasDataGridView.Size = new System.Drawing.Size(449, 239);
+            this.areasDataGridView.Size = new System.Drawing.Size(418, 239);
             this.areasDataGridView.TabIndex = 1;
             this.areasDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.areasDataGridView_CellDoubleClick);
             // 
@@ -379,17 +403,6 @@
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(126, 423);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(216, 17);
-            this.checkBox1.TabIndex = 4;
-            this.checkBox1.Text = "Показать заявки, отправленные мне";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.Click += new System.EventHandler(this.checkBox1_Click);
-            // 
             // areasBindingSource
             // 
             this.areasBindingSource.DataMember = "Areas";
@@ -453,6 +466,79 @@
             this.tableAdapterManager.RequestsTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = CourseWork.DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Location = new System.Drawing.Point(12, 125);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(245, 24);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Состояние моих заявок";
+            // 
+            // RequestsGridView
+            // 
+            this.RequestsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.RequestsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_a,
+            this.id_own,
+            this.Area_Name,
+            this.roomsAmount,
+            this.square,
+            this.price_perMonth,
+            this.Accept,
+            this.descr});
+            this.RequestsGridView.Location = new System.Drawing.Point(0, 162);
+            this.RequestsGridView.Name = "RequestsGridView";
+            this.RequestsGridView.Size = new System.Drawing.Size(416, 239);
+            this.RequestsGridView.TabIndex = 6;
+            this.RequestsGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RequestsGridView_CellDoubleClick);
+            // 
+            // id_a
+            // 
+            this.id_a.HeaderText = "id_a";
+            this.id_a.Name = "id_a";
+            this.id_a.Visible = false;
+            // 
+            // id_own
+            // 
+            this.id_own.HeaderText = "id_own";
+            this.id_own.Name = "id_own";
+            this.id_own.Visible = false;
+            // 
+            // Area_Name
+            // 
+            this.Area_Name.HeaderText = "Area_Name";
+            this.Area_Name.Name = "Area_Name";
+            // 
+            // roomsAmount
+            // 
+            this.roomsAmount.HeaderText = "roomsAmount";
+            this.roomsAmount.Name = "roomsAmount";
+            // 
+            // square
+            // 
+            this.square.HeaderText = "square";
+            this.square.Name = "square";
+            // 
+            // price_perMonth
+            // 
+            this.price_perMonth.HeaderText = "price_perMonth";
+            this.price_perMonth.Name = "price_perMonth";
+            // 
+            // Accept
+            // 
+            this.Accept.HeaderText = "Accept";
+            this.Accept.Name = "Accept";
+            this.Accept.ReadOnly = true;
+            this.Accept.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Accept.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // descr
+            // 
+            this.descr.HeaderText = "descr";
+            this.descr.Name = "descr";
+            // 
             // MainFormRenters
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -482,6 +568,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.areasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RequestsGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -527,5 +614,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Describe;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.DataGridView RequestsGridView;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_a;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_own;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Area_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn roomsAmount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn square;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price_perMonth;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Accept;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descr;
     }
 }

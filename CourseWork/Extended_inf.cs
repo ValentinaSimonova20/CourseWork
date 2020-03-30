@@ -67,9 +67,9 @@ namespace CourseWork
                 labelDesires.Text = "Пожелания заказчика:";
             }
 
-            if (SelectedArea.dgvType == "requests")
+            if (SelectedArea.areaType == "request")
             {
-                buttonSendRequest.Text = "Оплатить";
+                buttonSendRequest.Text = "Принять заявку и оплатить";
                 label1.Text = "Оплата";
             }
         }
@@ -78,21 +78,21 @@ namespace CourseWork
         {
             DB db = new DB();
 
-            if (buttonSendRequest.Text == "Оплатить")
+            if (buttonSendRequest.Text == "Принять заявку и оплатить")
             {
-                OleDbCommand command = new OleDbCommand("INSERT INTO Contracts ([Owner_id], [Renter_id], [Area_id], [Amount_of_money],[ObjectType]) VALUES (@own_id, @rent_id, @area_id, @money,@objType)", db.getConnection());
+                OleDbCommand command = new OleDbCommand("INSERT INTO Contracts ([Owner_id], [Renter_id], [Area_id], [Amount_of_money]) VALUES (@own_id, @rent_id, @area_id, @money)", db.getConnection());
                 command.Parameters.Add("@own_id", OleDbType.Integer).Value = SelectedArea.person_id;
                 command.Parameters.Add("@rent_id", OleDbType.Integer).Value = Client1.id;
                 command.Parameters.Add("@area_id", OleDbType.Integer).Value = SelectedArea.area_id;
                 command.Parameters.Add("@money", OleDbType.Integer).Value = SelectedArea.price;
-                command.Parameters.Add("@objType", OleDbType.VarChar).Value = SelectedArea.price;
+
 
                 db.openConnection();
 
                 if (command.ExecuteNonQuery() == 1)
-                    MessageBox.Show("Аккаунт был создан");
+                    MessageBox.Show("Площадь оплачена. Подождите пока с вами свяжется владелец");
                 else
-                    MessageBox.Show("Аккаунт не был создан");
+                    MessageBox.Show("Error");
 
                 db.closeConnection();
             }
@@ -109,11 +109,12 @@ namespace CourseWork
                 
 
                 //Проверяем подавал ли пользователь уже эту заявку
-                OleDbCommand command1 = new OleDbCommand("SELECT * FROM Requests WHERE Role = @role AND Role_Login= @rL AND object_id=@Oi", db.getConnection());
+                OleDbCommand command1 = new OleDbCommand("SELECT * FROM Requests WHERE Renter_id = @r_id AND Owner_id= @o_id AND Area_id=@a_id AND Requests_initiatair=@r_i", db.getConnection());
 
-                command1.Parameters.Add("@role", OleDbType.VarChar).Value = ClientRole;
-                command1.Parameters.Add("@rL", OleDbType.VarChar).Value = Role_Login;
-                command1.Parameters.Add("@Oi", OleDbType.Integer).Value = objectId;
+                command1.Parameters.Add("@r_id", OleDbType.Integer).Value = Client1.id;
+                command1.Parameters.Add("@o_id", OleDbType.Integer).Value = SelectedArea.person_id;
+                command1.Parameters.Add("@a_id", OleDbType.Integer).Value = SelectedArea.area_id;
+                command1.Parameters.Add("@r_i", OleDbType.VarChar).Value = Client1.role;
 
                 DataTable table = new DataTable();
                 OleDbDataAdapter adapter = new OleDbDataAdapter();
@@ -127,11 +128,12 @@ namespace CourseWork
                 else
                 {
 
-                    OleDbCommand command2 = new OleDbCommand("INSERT INTO Requests ([Accept], [Role], [object_id], [Role_Login]) VALUES (@accept, @role, @object_id, @role_Login)", db.getConnection());
+                    OleDbCommand command2 = new OleDbCommand("INSERT INTO Requests ([Accept],[Area_id],[Renter_id],[Owner_id],[Requests_initiatair] ) VALUES (@accept, @a_id, @r_id, @o_id,@r_i)", db.getConnection());
                     command2.Parameters.Add("@accept", OleDbType.Boolean).Value = false;
-                    command2.Parameters.Add("@role", OleDbType.VarChar).Value = ClientRole;
-                    command2.Parameters.Add("@object_id", OleDbType.Integer).Value = objectId;
-                    command2.Parameters.Add("@role_Login", OleDbType.VarChar).Value = Role_Login;
+                    command2.Parameters.Add("@a_id", OleDbType.Integer).Value =SelectedArea.area_id;
+                    command2.Parameters.Add("@r_id", OleDbType.Integer).Value = Client1.id;
+                    command2.Parameters.Add("@o_id", OleDbType.VarChar).Value = SelectedArea.person_id;
+                    command2.Parameters.Add("@r_i", OleDbType.VarChar).Value = Client1.role;
 
                     db.openConnection();
 

@@ -39,6 +39,7 @@ namespace CourseWork
         public static int rooms { get; set; }
         public static int price { get; set; }
         public static string describe { get; set; }
-        public static string dgvType { get; set; }
+        public static string areaType { get; set; }
+        public static bool accept { get; set; }
     }
 }

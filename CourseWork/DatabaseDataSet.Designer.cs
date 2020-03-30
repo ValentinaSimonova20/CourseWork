@@ -1800,8 +1800,6 @@ namespace CourseWork {
             
             private global::System.Data.DataColumn columnAmount_of_money;
             
-            private global::System.Data.DataColumn columnObjectType;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public ContractsDataTable() {
@@ -1877,14 +1875,6 @@ namespace CourseWork {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn ObjectTypeColumn {
-                get {
-                    return this.columnObjectType;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1920,15 +1910,14 @@ namespace CourseWork {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public ContractsRow AddContractsRow(int Owner_id, int Renter_id, int Area_id, int Amount_of_money, string ObjectType) {
+            public ContractsRow AddContractsRow(int Owner_id, int Renter_id, int Area_id, int Amount_of_money) {
                 ContractsRow rowContractsRow = ((ContractsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Owner_id,
                         Renter_id,
                         Area_id,
-                        Amount_of_money,
-                        ObjectType};
+                        Amount_of_money};
                 rowContractsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowContractsRow);
                 return rowContractsRow;
@@ -1963,7 +1952,6 @@ namespace CourseWork {
                 this.columnRenter_id = base.Columns["Renter_id"];
                 this.columnArea_id = base.Columns["Area_id"];
                 this.columnAmount_of_money = base.Columns["Amount_of_money"];
-                this.columnObjectType = base.Columns["ObjectType"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1979,8 +1967,6 @@ namespace CourseWork {
                 base.Columns.Add(this.columnArea_id);
                 this.columnAmount_of_money = new global::System.Data.DataColumn("Amount_of_money", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAmount_of_money);
-                this.columnObjectType = new global::System.Data.DataColumn("ObjectType", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnObjectType);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnid.AutoIncrement = true;
@@ -1988,7 +1974,6 @@ namespace CourseWork {
                 this.columnid.AutoIncrementStep = -1;
                 this.columnid.AllowDBNull = false;
                 this.columnid.Unique = true;
-                this.columnObjectType.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2132,6 +2117,8 @@ namespace CourseWork {
             
             private global::System.Data.DataColumn columnOwner_id;
             
+            private global::System.Data.DataColumn columnRequests_initiatair;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public RequestsDataTable() {
@@ -2207,6 +2194,14 @@ namespace CourseWork {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn Requests_initiatairColumn {
+                get {
+                    return this.columnRequests_initiatair;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2242,14 +2237,15 @@ namespace CourseWork {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public RequestsRow AddRequestsRow(int Area_id, bool Accept, int Renter_id, int Owner_id) {
+            public RequestsRow AddRequestsRow(int Area_id, bool Accept, int Renter_id, int Owner_id, string Requests_initiatair) {
                 RequestsRow rowRequestsRow = ((RequestsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Area_id,
                         Accept,
                         Renter_id,
-                        Owner_id};
+                        Owner_id,
+                        Requests_initiatair};
                 rowRequestsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowRequestsRow);
                 return rowRequestsRow;
@@ -2284,6 +2280,7 @@ namespace CourseWork {
                 this.columnAccept = base.Columns["Accept"];
                 this.columnRenter_id = base.Columns["Renter_id"];
                 this.columnOwner_id = base.Columns["Owner_id"];
+                this.columnRequests_initiatair = base.Columns["Requests_initiatair"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2299,6 +2296,8 @@ namespace CourseWork {
                 base.Columns.Add(this.columnRenter_id);
                 this.columnOwner_id = new global::System.Data.DataColumn("Owner_id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnOwner_id);
+                this.columnRequests_initiatair = new global::System.Data.DataColumn("Requests_initiatair", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRequests_initiatair);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnRequest_id}, true));
                 this.columnRequest_id.AutoIncrement = true;
@@ -2306,6 +2305,7 @@ namespace CourseWork {
                 this.columnRequest_id.AutoIncrementStep = -1;
                 this.columnRequest_id.AllowDBNull = false;
                 this.columnRequest_id.Unique = true;
+                this.columnRequests_initiatair.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3188,22 +3188,6 @@ namespace CourseWork {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string ObjectType {
-                get {
-                    try {
-                        return ((string)(this[this.tableContracts.ObjectTypeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'ObjectType\' в таблице \'Contracts\' равно DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableContracts.ObjectTypeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsOwner_idNull() {
                 return this.IsNull(this.tableContracts.Owner_idColumn);
             }
@@ -3248,18 +3232,6 @@ namespace CourseWork {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetAmount_of_moneyNull() {
                 this[this.tableContracts.Amount_of_moneyColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsObjectTypeNull() {
-                return this.IsNull(this.tableContracts.ObjectTypeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetObjectTypeNull() {
-                this[this.tableContracts.ObjectTypeColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3354,6 +3326,22 @@ namespace CourseWork {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Requests_initiatair {
+                get {
+                    try {
+                        return ((string)(this[this.tableRequests.Requests_initiatairColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Requests_initiatair\' в таблице \'Requests\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRequests.Requests_initiatairColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsArea_idNull() {
                 return this.IsNull(this.tableRequests.Area_idColumn);
             }
@@ -3398,6 +3386,18 @@ namespace CourseWork {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetOwner_idNull() {
                 this[this.tableRequests.Owner_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsRequests_initiatairNull() {
+                return this.IsNull(this.tableRequests.Requests_initiatairColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetRequests_initiatairNull() {
+                this[this.tableRequests.Requests_initiatairColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -5545,11 +5545,10 @@ namespace CourseWork.DatabaseDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Renter_id", "Renter_id");
             tableMapping.ColumnMappings.Add("Area_id", "Area_id");
             tableMapping.ColumnMappings.Add("Amount_of_money", "Amount_of_money");
-            tableMapping.ColumnMappings.Add("ObjectType", "ObjectType");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `Contracts` WHERE ((`id` = ?) AND ((? = 1 AND `Owner_id` IS NULL) OR (`Owner_id` = ?)) AND ((? = 1 AND `Renter_id` IS NULL) OR (`Renter_id` = ?)) AND ((? = 1 AND `Area_id` IS NULL) OR (`Area_id` = ?)) AND ((? = 1 AND `Amount_of_money` IS NULL) OR (`Amount_of_money` = ?)) AND ((? = 1 AND `ObjectType` IS NULL) OR (`ObjectType` = ?)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `Contracts` WHERE ((`id` = ?) AND ((? = 1 AND `Owner_id` IS NULL) OR (`Owner_id` = ?)) AND ((? = 1 AND `Renter_id` IS NULL) OR (`Renter_id` = ?)) AND ((? = 1 AND `Area_id` IS NULL) OR (`Area_id` = ?)) AND ((? = 1 AND `Amount_of_money` IS NULL) OR (`Amount_of_money` = ?)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "id", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Owner_id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Owner_id", global::System.Data.DataRowVersion.Original, true, null));
@@ -5560,27 +5559,23 @@ namespace CourseWork.DatabaseDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Area_id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Area_id", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Amount_of_money", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Amount_of_money", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Amount_of_money", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Amount_of_money", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ObjectType", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ObjectType", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ObjectType", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ObjectType", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `Contracts` (`Owner_id`, `Renter_id`, `Area_id`, `Amount_of_money`, `" +
-                "ObjectType`) VALUES (?, ?, ?, ?, ?)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `Contracts` (`Owner_id`, `Renter_id`, `Area_id`, `Amount_of_money`) V" +
+                "ALUES (?, ?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Owner_id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Owner_id", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Renter_id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Renter_id", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Area_id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Area_id", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Amount_of_money", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Amount_of_money", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ObjectType", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ObjectType", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `Contracts` SET `Owner_id` = ?, `Renter_id` = ?, `Area_id` = ?, `Amount_of_money` = ?, `ObjectType` = ? WHERE ((`id` = ?) AND ((? = 1 AND `Owner_id` IS NULL) OR (`Owner_id` = ?)) AND ((? = 1 AND `Renter_id` IS NULL) OR (`Renter_id` = ?)) AND ((? = 1 AND `Area_id` IS NULL) OR (`Area_id` = ?)) AND ((? = 1 AND `Amount_of_money` IS NULL) OR (`Amount_of_money` = ?)) AND ((? = 1 AND `ObjectType` IS NULL) OR (`ObjectType` = ?)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `Contracts` SET `Owner_id` = ?, `Renter_id` = ?, `Area_id` = ?, `Amount_of_money` = ? WHERE ((`id` = ?) AND ((? = 1 AND `Owner_id` IS NULL) OR (`Owner_id` = ?)) AND ((? = 1 AND `Renter_id` IS NULL) OR (`Renter_id` = ?)) AND ((? = 1 AND `Area_id` IS NULL) OR (`Area_id` = ?)) AND ((? = 1 AND `Amount_of_money` IS NULL) OR (`Amount_of_money` = ?)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Owner_id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Owner_id", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Renter_id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Renter_id", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Area_id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Area_id", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Amount_of_money", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Amount_of_money", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ObjectType", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ObjectType", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "id", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Owner_id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Owner_id", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Owner_id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Owner_id", global::System.Data.DataRowVersion.Original, false, null));
@@ -5590,8 +5585,6 @@ namespace CourseWork.DatabaseDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Area_id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Area_id", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Amount_of_money", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Amount_of_money", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Amount_of_money", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Amount_of_money", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ObjectType", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ObjectType", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ObjectType", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ObjectType", global::System.Data.DataRowVersion.Original, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5607,8 +5600,7 @@ namespace CourseWork.DatabaseDataSetTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id, Owner_id, Renter_id, Area_id, Amount_of_money, ObjectType FROM Contrac" +
-                "ts";
+            this._commandCollection[0].CommandText = "SELECT id, Owner_id, Renter_id, Area_id, Amount_of_money FROM Contracts";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -5669,7 +5661,7 @@ namespace CourseWork.DatabaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_id, global::System.Nullable<int> Original_Owner_id, global::System.Nullable<int> Original_Renter_id, global::System.Nullable<int> Original_Area_id, global::System.Nullable<int> Original_Amount_of_money, string Original_ObjectType) {
+        public virtual int Delete(int Original_id, global::System.Nullable<int> Original_Owner_id, global::System.Nullable<int> Original_Renter_id, global::System.Nullable<int> Original_Area_id, global::System.Nullable<int> Original_Amount_of_money) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id));
             if ((Original_Owner_id.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -5703,14 +5695,6 @@ namespace CourseWork.DatabaseDataSetTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((Original_ObjectType == null)) {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_ObjectType));
-            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5731,7 +5715,7 @@ namespace CourseWork.DatabaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<int> Owner_id, global::System.Nullable<int> Renter_id, global::System.Nullable<int> Area_id, global::System.Nullable<int> Amount_of_money, string ObjectType) {
+        public virtual int Insert(global::System.Nullable<int> Owner_id, global::System.Nullable<int> Renter_id, global::System.Nullable<int> Area_id, global::System.Nullable<int> Amount_of_money) {
             if ((Owner_id.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((int)(Owner_id.Value));
             }
@@ -5756,12 +5740,6 @@ namespace CourseWork.DatabaseDataSetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((ObjectType == null)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(ObjectType));
-            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5782,7 +5760,7 @@ namespace CourseWork.DatabaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> Owner_id, global::System.Nullable<int> Renter_id, global::System.Nullable<int> Area_id, global::System.Nullable<int> Amount_of_money, string ObjectType, int Original_id, global::System.Nullable<int> Original_Owner_id, global::System.Nullable<int> Original_Renter_id, global::System.Nullable<int> Original_Area_id, global::System.Nullable<int> Original_Amount_of_money, string Original_ObjectType) {
+        public virtual int Update(global::System.Nullable<int> Owner_id, global::System.Nullable<int> Renter_id, global::System.Nullable<int> Area_id, global::System.Nullable<int> Amount_of_money, int Original_id, global::System.Nullable<int> Original_Owner_id, global::System.Nullable<int> Original_Renter_id, global::System.Nullable<int> Original_Area_id, global::System.Nullable<int> Original_Amount_of_money) {
             if ((Owner_id.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(Owner_id.Value));
             }
@@ -5807,52 +5785,38 @@ namespace CourseWork.DatabaseDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((ObjectType == null)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(ObjectType));
-            }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_id));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_id));
             if ((Original_Owner_id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_Owner_id.Value));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_Owner_id.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             if ((Original_Renter_id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_Renter_id.Value));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_Renter_id.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             if ((Original_Area_id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_Area_id.Value));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_Area_id.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             if ((Original_Amount_of_money.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_Amount_of_money.Value));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_Amount_of_money.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            if ((Original_ObjectType == null)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_ObjectType));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -5997,10 +5961,11 @@ namespace CourseWork.DatabaseDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Accept", "Accept");
             tableMapping.ColumnMappings.Add("Renter_id", "Renter_id");
             tableMapping.ColumnMappings.Add("Owner_id", "Owner_id");
+            tableMapping.ColumnMappings.Add("Requests_initiatair", "Requests_initiatair");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `Requests` WHERE ((`Request_id` = ?) AND ((? = 1 AND `Area_id` IS NULL) OR (`Area_id` = ?)) AND ((? = 1 AND `Accept` IS NULL) OR (`Accept` = ?)) AND ((? = 1 AND `Renter_id` IS NULL) OR (`Renter_id` = ?)) AND ((? = 1 AND `Owner_id` IS NULL) OR (`Owner_id` = ?)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `Requests` WHERE ((`Request_id` = ?) AND ((? = 1 AND `Area_id` IS NULL) OR (`Area_id` = ?)) AND ((? = 1 AND `Accept` IS NULL) OR (`Accept` = ?)) AND ((? = 1 AND `Renter_id` IS NULL) OR (`Renter_id` = ?)) AND ((? = 1 AND `Owner_id` IS NULL) OR (`Owner_id` = ?)) AND ((? = 1 AND `Requests_initiatair` IS NULL) OR (`Requests_initiatair` = ?)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Request_id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Request_id", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Area_id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Area_id", global::System.Data.DataRowVersion.Original, true, null));
@@ -6011,23 +5976,27 @@ namespace CourseWork.DatabaseDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Renter_id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Renter_id", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Owner_id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Owner_id", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Owner_id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Owner_id", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Requests_initiatair", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Requests_initiatair", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Requests_initiatair", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Requests_initiatair", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `Requests` (`Area_id`, `Accept`, `Renter_id`, `Owner_id`) VALUES (?, " +
-                "?, ?, ?)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `Requests` (`Area_id`, `Accept`, `Renter_id`, `Owner_id`, `Requests_i" +
+                "nitiatair`) VALUES (?, ?, ?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Area_id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Area_id", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Accept", global::System.Data.OleDb.OleDbType.Boolean, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Accept", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Renter_id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Renter_id", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Owner_id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Owner_id", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Requests_initiatair", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Requests_initiatair", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `Requests` SET `Area_id` = ?, `Accept` = ?, `Renter_id` = ?, `Owner_id` = ? WHERE ((`Request_id` = ?) AND ((? = 1 AND `Area_id` IS NULL) OR (`Area_id` = ?)) AND ((? = 1 AND `Accept` IS NULL) OR (`Accept` = ?)) AND ((? = 1 AND `Renter_id` IS NULL) OR (`Renter_id` = ?)) AND ((? = 1 AND `Owner_id` IS NULL) OR (`Owner_id` = ?)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `Requests` SET `Area_id` = ?, `Accept` = ?, `Renter_id` = ?, `Owner_id` = ?, `Requests_initiatair` = ? WHERE ((`Request_id` = ?) AND ((? = 1 AND `Area_id` IS NULL) OR (`Area_id` = ?)) AND ((? = 1 AND `Accept` IS NULL) OR (`Accept` = ?)) AND ((? = 1 AND `Renter_id` IS NULL) OR (`Renter_id` = ?)) AND ((? = 1 AND `Owner_id` IS NULL) OR (`Owner_id` = ?)) AND ((? = 1 AND `Requests_initiatair` IS NULL) OR (`Requests_initiatair` = ?)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Area_id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Area_id", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Accept", global::System.Data.OleDb.OleDbType.Boolean, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Accept", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Renter_id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Renter_id", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Owner_id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Owner_id", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Requests_initiatair", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Requests_initiatair", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Request_id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Request_id", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Area_id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Area_id", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Area_id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Area_id", global::System.Data.DataRowVersion.Original, false, null));
@@ -6037,6 +6006,8 @@ namespace CourseWork.DatabaseDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Renter_id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Renter_id", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Owner_id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Owner_id", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Owner_id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Owner_id", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Requests_initiatair", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Requests_initiatair", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Requests_initiatair", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Requests_initiatair", global::System.Data.DataRowVersion.Original, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6052,7 +6023,8 @@ namespace CourseWork.DatabaseDataSetTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Request_id, Area_id, Accept, Renter_id, Owner_id FROM Requests";
+            this._commandCollection[0].CommandText = "SELECT Request_id, Area_id, Accept, Renter_id, Owner_id, Requests_initiatair FROM" +
+                " Requests";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -6113,7 +6085,7 @@ namespace CourseWork.DatabaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Request_id, global::System.Nullable<int> Original_Area_id, bool Original_Accept, global::System.Nullable<int> Original_Renter_id, global::System.Nullable<int> Original_Owner_id) {
+        public virtual int Delete(int Original_Request_id, global::System.Nullable<int> Original_Area_id, bool Original_Accept, global::System.Nullable<int> Original_Renter_id, global::System.Nullable<int> Original_Owner_id, string Original_Requests_initiatair) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Request_id));
             if ((Original_Area_id.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -6141,6 +6113,14 @@ namespace CourseWork.DatabaseDataSetTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
+            if ((Original_Requests_initiatair == null)) {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_Requests_initiatair));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6161,7 +6141,7 @@ namespace CourseWork.DatabaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<int> Area_id, bool Accept, global::System.Nullable<int> Renter_id, global::System.Nullable<int> Owner_id) {
+        public virtual int Insert(global::System.Nullable<int> Area_id, bool Accept, global::System.Nullable<int> Renter_id, global::System.Nullable<int> Owner_id, string Requests_initiatair) {
             if ((Area_id.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((int)(Area_id.Value));
             }
@@ -6180,6 +6160,12 @@ namespace CourseWork.DatabaseDataSetTableAdapters {
             }
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((Requests_initiatair == null)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Requests_initiatair));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -6201,7 +6187,7 @@ namespace CourseWork.DatabaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> Area_id, bool Accept, global::System.Nullable<int> Renter_id, global::System.Nullable<int> Owner_id, int Original_Request_id, global::System.Nullable<int> Original_Area_id, bool Original_Accept, global::System.Nullable<int> Original_Renter_id, global::System.Nullable<int> Original_Owner_id) {
+        public virtual int Update(global::System.Nullable<int> Area_id, bool Accept, global::System.Nullable<int> Renter_id, global::System.Nullable<int> Owner_id, string Requests_initiatair, int Original_Request_id, global::System.Nullable<int> Original_Area_id, bool Original_Accept, global::System.Nullable<int> Original_Renter_id, global::System.Nullable<int> Original_Owner_id, string Original_Requests_initiatair) {
             if ((Area_id.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(Area_id.Value));
             }
@@ -6221,32 +6207,46 @@ namespace CourseWork.DatabaseDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_Request_id));
+            if ((Requests_initiatair == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Requests_initiatair));
+            }
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_Request_id));
             if ((Original_Area_id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_Area_id.Value));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_Area_id.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((bool)(Original_Accept));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((bool)(Original_Accept));
             if ((Original_Renter_id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_Renter_id.Value));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_Renter_id.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             if ((Original_Owner_id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_Owner_id.Value));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_Owner_id.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Requests_initiatair == null)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_Requests_initiatair));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
