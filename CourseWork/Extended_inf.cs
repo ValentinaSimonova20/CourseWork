@@ -11,14 +11,68 @@ using System.Windows.Forms;
 
 namespace CourseWork
 {
+   
+
     public partial class Extended_inf : Form
     {
+        List<string[]> data = new List<string[]>();
+
         public Extended_inf()
         {
             InitializeComponent();
+            if (Client1.role == "Owners")
+            {
+                ownerAreas();
+                fillComboBox();
+            }
+            else
+            {
+                AreasComboBox.Visible = false;
+            }
+
             
 
         }
+
+        private void ownerAreas()
+        {
+            DB db = new DB();
+            db.openConnection();
+
+            String query = "SELECT [AreaName],[SpaceOfArea_squareMeter],[Rooms],[PricePerMonth] FROM Areas  WHERE Owner_id=@o_id";
+            OleDbCommand command = new OleDbCommand(query, db.getConnection());
+            command.Parameters.Add("@o_id", OleDbType.Integer).Value = Client1.id;
+            OleDbDataReader reader = command.ExecuteReader();
+
+
+            while (reader.Read())
+            {
+                data.Add(new string[4]);
+
+                data[data.Count - 1][0] = reader[0].ToString();
+                data[data.Count - 1][1] = reader[1].ToString();
+                data[data.Count - 1][2] = reader[2].ToString();
+                data[data.Count - 1][3] = reader[3].ToString();
+
+            }
+
+            reader.Close();
+            db.closeConnection();
+
+
+        }
+
+        private void fillComboBox()
+        {
+            foreach(string[] area in data)
+            {
+                String res = " ";
+                res = area[0] + ", " + area[1] + " кв.м.," + area[2] + " комнат(ы), " + area[3] + " руб/мес";
+                AreasComboBox.Items.Add(res);
+            }
+
+        }
+
 
         private void closeButton_Click(object sender, EventArgs e)
         {

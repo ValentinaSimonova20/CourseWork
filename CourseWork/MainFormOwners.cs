@@ -71,9 +71,10 @@ namespace CourseWork
             DB db = new DB();
             db.openConnection();
 
-            String query = "SELECT [Areas.AreaName], [Renters.Name],[Renters.Surname],[Requests.Accept],[Requests.Request_id] FROM (Areas INNER JOIN Requests ON Areas.id=Requests.object_id) INNER JOIN Renters ON Requests.Role_Login=Renters.Login WHERE Requests.object_id IN (SELECT id from Areas where Owner_id=(Select id from Owners WHERE Login=@login))";
+            String query = "SELECT [Areas.AreaName], [Renters.Name],[Renters.Surname],[Requests.Accept],[Requests.Request_id] FROM (Areas INNER JOIN Requests ON Areas.id=Requests.Area_id) INNER JOIN Renters ON Requests.Renter_id=Renters.id WHERE Requests.Area_id IN (SELECT id from Areas where Owner_id=@id) AND Requests.Requests_initiatair=@role";
             OleDbCommand command = new OleDbCommand(query, db.getConnection());
-            command.Parameters.Add("@login", OleDbType.VarChar).Value = Client1.id;
+            command.Parameters.Add("@id", OleDbType.Integer).Value = Client1.id;
+            command.Parameters.Add("@role", OleDbType.VarChar).Value = "Renters";
             OleDbDataReader reader= command.ExecuteReader();
 
             List<string[]> data = new List<string[]>();
