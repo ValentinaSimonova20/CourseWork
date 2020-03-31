@@ -142,7 +142,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(843, 634);
             this.panel1.TabIndex = 12;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            
             // 
             // checkBox1
             // 
@@ -287,7 +287,7 @@
             this.areasBindingNavigator.Size = new System.Drawing.Size(843, 25);
             this.areasBindingNavigator.TabIndex = 13;
             this.areasBindingNavigator.Text = "bindingNavigator1";
-            this.areasBindingNavigator.RefreshItems += new System.EventHandler(this.areasBindingNavigator_RefreshItems);
+            
             // 
             // bindingNavigatorAddNewItem
             // 

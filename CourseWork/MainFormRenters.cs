@@ -121,15 +121,7 @@ namespace CourseWork
             Application.Exit();
         }
 
-        private void areasBindingNavigator_RefreshItems(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+       
 
         private void areasDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
