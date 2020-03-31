@@ -16,6 +16,7 @@ namespace CourseWork
         public Extended_inf()
         {
             InitializeComponent();
+            
 
         }
 
@@ -67,7 +68,7 @@ namespace CourseWork
                 labelDesires.Text = "Пожелания заказчика:";
             }
 
-            if (SelectedArea.areaType == "request")
+            if (SelectedArea.areaType == "request" || (SelectedArea.areaType== "UsersRequest" && SelectedArea.accept==true))
             {
                 buttonSendRequest.Text = "Принять заявку и оплатить";
                 label1.Text = "Оплата";
@@ -80,6 +81,7 @@ namespace CourseWork
 
             if (buttonSendRequest.Text == "Принять заявку и оплатить")
             {
+                //Проверить оплачивал ли пользователь уже данную заявку, если да, то не оплачивать еще раз
                 OleDbCommand command = new OleDbCommand("INSERT INTO Contracts ([Owner_id], [Renter_id], [Area_id], [Amount_of_money]) VALUES (@own_id, @rent_id, @area_id, @money)", db.getConnection());
                 command.Parameters.Add("@own_id", OleDbType.Integer).Value = SelectedArea.person_id;
                 command.Parameters.Add("@rent_id", OleDbType.Integer).Value = Client1.id;

@@ -197,6 +197,7 @@ namespace CourseWork
                 SelectedArea.rooms = int.Parse(RequestsGridView.Rows[e.RowIndex].Cells["roomsAmount"].Value.ToString());
                 SelectedArea.describe = RequestsGridView.Rows[e.RowIndex].Cells["descr"].Value.ToString();
                 SelectedArea.accept = bool.Parse(RequestsGridView.Rows[e.RowIndex].Cells["Accept"].Value.ToString());
+                SelectedArea.areaType = "UsersRequest";
 
                 this.Hide();
                 Extended_inf Extended_inf = new Extended_inf();
