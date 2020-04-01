@@ -29,27 +29,31 @@ namespace CourseWork
             DB db = new DB();
             db.openConnection();
             String query;
-            if (Client1.role == "Renters")
-            {
-                query = "SELECT [Requests.Request_id],[Areas.AreaName], [Requests.Accept] FROM (Areas INNER JOIN Requests ON Areas.id=Requests.object_id) WHERE Requests.Role_Login=@r_L";
-            }
-            else
-            {
-                query = "SELECT [Requests.Request_id],[LeasingAppID.LeasingAppName], [Requests.Accept] FROM (LeasingAppID INNER JOIN Requests ON LeasingAppID.id=Requests.object_id) WHERE Requests.Role_Login=@r_L";
-            }
+            query = "SELECT [Requests.Area_id],[Requests.Request_id],[Renters.Name], [Renters.Surname],[Areas.AreaName],[Areas.Rooms], " +
+                "[Areas.SpaceOfArea_squareMeter],[Areas.PricePerMonth],[Requests.Accept]   " +
+                "FROM ((Areas INNER JOIN Requests ON Areas.id=Requests.Area_id) INNER JOIN Renters ON Requests.Renter_id=Renters.id) " +
+                "WHERE Requests_initiatair=@role AND Requests.Owner_id=@o_id";
+            
             OleDbCommand command = new OleDbCommand(query, db.getConnection());
-            command.Parameters.Add("@login", OleDbType.VarChar).Value = Client1.id;
+            command.Parameters.Add("@role", OleDbType.VarChar).Value = Client1.role;
+            command.Parameters.Add("@role", OleDbType.VarChar).Value = Client1.id;
             OleDbDataReader reader = command.ExecuteReader();
 
             List<string[]> data = new List<string[]>();
 
             while (reader.Read())
             {
-                data.Add(new string[5]);
+                data.Add(new string[9]);
 
                 data[data.Count - 1][0] = reader[0].ToString();
                 data[data.Count - 1][1] = reader[1].ToString();
                 data[data.Count - 1][2] = reader[2].ToString();
+                data[data.Count - 1][3] = reader[3].ToString();
+                data[data.Count - 1][4] = reader[4].ToString();
+                data[data.Count - 1][5] = reader[5].ToString();
+                data[data.Count - 1][6] = reader[6].ToString();
+                data[data.Count - 1][7] = reader[7].ToString();
+                data[data.Count - 1][8] = reader[8].ToString();
             }
 
             reader.Close();
@@ -57,7 +61,7 @@ namespace CourseWork
 
             foreach (string[] s in data)
             {
-                dataGridView1.Rows.Add(s);
+                RequestsStatusDgv.Rows.Add(s);
             }
 
         }
