@@ -138,22 +138,38 @@ namespace CourseWork
 
             if (buttonSendRequest.Text == "Принять заявку и оплатить")
             {
-                //Проверить оплачивал ли пользователь уже данную заявку, если да, то не оплачивать еще раз
+                
                 OleDbCommand command = new OleDbCommand("INSERT INTO Contracts ([Owner_id], [Renter_id], [Area_id], [Amount_of_money]) VALUES (@own_id, @rent_id, @area_id, @money)", db.getConnection());
                 command.Parameters.Add("@own_id", OleDbType.Integer).Value = SelectedArea.person_id;
                 command.Parameters.Add("@rent_id", OleDbType.Integer).Value = Client1.id;
                 command.Parameters.Add("@area_id", OleDbType.Integer).Value = SelectedArea.area_id;
                 command.Parameters.Add("@money", OleDbType.Integer).Value = SelectedArea.price;
 
+                OleDbCommand commandCheck = new OleDbCommand("SELECT * FROM Contracts WHERE Owner_id=@own_id AND Renter_id=@rent_id AND Area_id=@area_id", db.getConnection());
+                commandCheck.Parameters.Add("@own_id", OleDbType.Integer).Value = SelectedArea.person_id;
+                commandCheck.Parameters.Add("@rent_id", OleDbType.Integer).Value = Client1.id;
+                commandCheck.Parameters.Add("@area_id", OleDbType.Integer).Value = SelectedArea.area_id;
+                OleDbDataAdapter adapter = new OleDbDataAdapter();
+                DataTable table = new DataTable();
+                adapter.SelectCommand = commandCheck;
+                adapter.Fill(table);
+                
 
-                db.openConnection();
+                if (table.Rows.Count > 0)
+                {
+                    MessageBox.Show("Вы уже оплатили данную площадь. Дождитесь когда с вами свяжется владелец");
 
-                if (command.ExecuteNonQuery() == 1)
-                    MessageBox.Show("Площадь оплачена. Подождите пока с вами свяжется владелец");
+                }
                 else
-                    MessageBox.Show("Error");
-
-                db.closeConnection();
+                {
+                    db.openConnection();
+                    if (command.ExecuteNonQuery() == 1)
+                        MessageBox.Show("Площадь оплачена. Подождите пока с вами свяжется владелец");
+                    else
+                        MessageBox.Show("Error");
+                    db.closeConnection();
+                }
+                
             }
 
             else
@@ -258,6 +274,28 @@ namespace CourseWork
 
 
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            if (Client1.role == "Renters")
+            {
+                MainFormRenters rentForm = new MainFormRenters();
+                rentForm.Show();
+
+            }
+            else
+            {
+                MainFormOwners ownForm = new MainFormOwners();
+                ownForm.Show();
+            }
+            
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

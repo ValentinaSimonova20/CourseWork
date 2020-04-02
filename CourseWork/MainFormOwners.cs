@@ -19,6 +19,8 @@ namespace CourseWork
             InitializeComponent();
 
             requests_LoadData();
+            dataGridView1.ForeColor = Color.Black;
+            leasingAppIDDataGridView.ForeColor = Color.Black;
 
 
         }
@@ -122,6 +124,13 @@ namespace CourseWork
             this.Hide();
             ClientRequests clientRequestsForm = new ClientRequests();
             clientRequestsForm.Show();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginForm logForm = new LoginForm();
+            logForm.Show();
         }
     }
 }

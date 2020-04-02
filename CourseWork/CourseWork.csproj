@@ -153,6 +153,10 @@
     <Content Include="images\user.png" />
     <Content Include="images\user2.svg" />
     <Content Include="images\user3.png" />
+    <None Include="Resources\y1.png" />
+    <None Include="Resources\y.png" />
+    <None Include="Resources\icon.png" />
+    <None Include="Resources\arrow.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

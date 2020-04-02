@@ -17,6 +17,7 @@ namespace CourseWork
         {
             InitializeComponent();
             requests_LoadData();
+            RequestsStatusDgv.ForeColor = Color.Black;
         }
 
         private void closeButton_Click(object sender, EventArgs e)
@@ -64,6 +65,14 @@ namespace CourseWork
                 RequestsStatusDgv.Rows.Add(s);
             }
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MainFormOwners ownForm = new MainFormOwners();
+            ownForm.Show();
+            
         }
     }
 }

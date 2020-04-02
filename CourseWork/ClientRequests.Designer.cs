@@ -42,9 +42,11 @@
             this.square = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Paid = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RequestsStatusDgv)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -72,7 +74,7 @@
             this.square,
             this.price,
             this.Paid});
-            this.RequestsStatusDgv.Location = new System.Drawing.Point(92, 164);
+            this.RequestsStatusDgv.Location = new System.Drawing.Point(90, 181);
             this.RequestsStatusDgv.Name = "RequestsStatusDgv";
             this.RequestsStatusDgv.Size = new System.Drawing.Size(756, 231);
             this.RequestsStatusDgv.TabIndex = 1;
@@ -80,6 +82,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(24)))), ((int)(((byte)(70)))));
+            this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.closeButton);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -157,6 +160,18 @@
             // 
             this.Paid.HeaderText = "Paid";
             this.Paid.Name = "Paid";
+            this.Paid.ReadOnly = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::CourseWork.Properties.Resources.y1;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 42);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(68, 62);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // ClientRequests
             // 
@@ -170,6 +185,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.RequestsStatusDgv)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -190,5 +206,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn square;
         private System.Windows.Forms.DataGridViewTextBoxColumn price;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Paid;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

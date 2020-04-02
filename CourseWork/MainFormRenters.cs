@@ -19,6 +19,8 @@ namespace CourseWork
             InitializeComponent();
             requests();
             LoadData();
+            RequestsGridView.ForeColor = Color.Black;
+            areasDataGridView.ForeColor = Color.Black;
 
         }
 
@@ -152,23 +154,29 @@ namespace CourseWork
             CurrencyManager currencyManager = (CurrencyManager)BindingContext[areasDataGridView.DataSource];
             currencyManager.SuspendBinding();
 
-            // Show all lines
-            for (int u = 0; u < areasDataGridView.RowCount; u++)
+            if (!checkBox1.Checked)
             {
-                areasDataGridView.Rows[u].Visible = true;
-
-            }
-
-            // Hide the ones that you want with the filter you want.
-            for (int u = 0; u < areasDataGridView.RowCount-1; u++)
-            {
-                if (data.Contains(areasDataGridView.Rows[u].Cells[0].Value.ToString()))
+                // Show all lines
+                for (int u = 0; u < areasDataGridView.RowCount; u++)
                 {
                     areasDataGridView.Rows[u].Visible = true;
+
                 }
-                else
+            }
+            else
+            {
+
+                // Hide the ones that you want with the filter you want.
+                for (int u = 0; u < areasDataGridView.RowCount - 1; u++)
                 {
-                    areasDataGridView.Rows[u].Visible = false;
+                    if (data.Contains(areasDataGridView.Rows[u].Cells[0].Value.ToString()))
+                    {
+                        areasDataGridView.Rows[u].Visible = true;
+                    }
+                    else
+                    {
+                        areasDataGridView.Rows[u].Visible = false;
+                    }
                 }
             }
 
@@ -198,6 +206,13 @@ namespace CourseWork
                 Extended_inf.Show();
             }
 
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginForm logForm = new LoginForm();
+            logForm.Show();
         }
     }
 }
