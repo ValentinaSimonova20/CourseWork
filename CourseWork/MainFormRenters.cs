@@ -214,5 +214,12 @@ namespace CourseWork
             LoginForm logForm = new LoginForm();
             logForm.Show();
         }
+
+        private void buttonAddRequest_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AddObject addobj = new AddObject();
+            addobj.Show();
+        }
     }
 }

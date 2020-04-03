@@ -29,13 +29,22 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFormRenters));
             this.buttonLogin = new System.Windows.Forms.Button();
             this.passField = new System.Windows.Forms.TextBox();
             this.loginField = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonAddRequest = new System.Windows.Forms.Button();
             this.RequestsGridView = new System.Windows.Forms.DataGridView();
+            this.id_a = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_own = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Area_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.roomsAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.square = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price_perMonth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Accept = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.descr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label5 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -51,6 +60,7 @@
             this.areasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DataSet = new CourseWork.DatabaseDataSet();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.closeButton = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -71,26 +81,17 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.areasTableAdapter = new CourseWork.DatabaseDataSetTableAdapters.AreasTableAdapter();
             this.tableAdapterManager = new CourseWork.DatabaseDataSetTableAdapters.TableAdapterManager();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.id_a = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_own = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Area_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.roomsAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.square = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price_perMonth = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Accept = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.descr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RequestsGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.areasDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.areasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataSet)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.areasBindingNavigator)).BeginInit();
             this.areasBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonLogin
@@ -131,6 +132,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(8)))), ((int)(((byte)(24)))));
+            this.panel1.Controls.Add(this.buttonAddRequest);
             this.panel1.Controls.Add(this.RequestsGridView);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.checkBox1);
@@ -144,6 +146,24 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(843, 634);
             this.panel1.TabIndex = 12;
+            // 
+            // buttonAddRequest
+            // 
+            this.buttonAddRequest.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(157)))), ((int)(((byte)(39)))));
+            this.buttonAddRequest.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonAddRequest.FlatAppearance.BorderSize = 0;
+            this.buttonAddRequest.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(136)))), ((int)(((byte)(0)))));
+            this.buttonAddRequest.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(164)))), ((int)(((byte)(0)))));
+            this.buttonAddRequest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddRequest.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonAddRequest.ForeColor = System.Drawing.Color.White;
+            this.buttonAddRequest.Location = new System.Drawing.Point(222, 543);
+            this.buttonAddRequest.Name = "buttonAddRequest";
+            this.buttonAddRequest.Size = new System.Drawing.Size(331, 47);
+            this.buttonAddRequest.TabIndex = 10;
+            this.buttonAddRequest.Text = "Добавить заявку";
+            this.buttonAddRequest.UseVisualStyleBackColor = false;
+            this.buttonAddRequest.Click += new System.EventHandler(this.buttonAddRequest_Click);
             // 
             // RequestsGridView
             // 
@@ -162,6 +182,52 @@
             this.RequestsGridView.Size = new System.Drawing.Size(416, 239);
             this.RequestsGridView.TabIndex = 6;
             this.RequestsGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RequestsGridView_CellDoubleClick);
+            // 
+            // id_a
+            // 
+            this.id_a.HeaderText = "id_a";
+            this.id_a.Name = "id_a";
+            this.id_a.Visible = false;
+            // 
+            // id_own
+            // 
+            this.id_own.HeaderText = "id_own";
+            this.id_own.Name = "id_own";
+            this.id_own.Visible = false;
+            // 
+            // Area_Name
+            // 
+            this.Area_Name.HeaderText = "Area_Name";
+            this.Area_Name.Name = "Area_Name";
+            // 
+            // roomsAmount
+            // 
+            this.roomsAmount.HeaderText = "roomsAmount";
+            this.roomsAmount.Name = "roomsAmount";
+            // 
+            // square
+            // 
+            this.square.HeaderText = "square";
+            this.square.Name = "square";
+            // 
+            // price_perMonth
+            // 
+            this.price_perMonth.HeaderText = "price_perMonth";
+            this.price_perMonth.Name = "price_perMonth";
+            // 
+            // Accept
+            // 
+            this.Accept.HeaderText = "Accept";
+            this.Accept.Name = "Accept";
+            this.Accept.ReadOnly = true;
+            this.Accept.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Accept.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // descr
+            // 
+            this.descr.HeaderText = "descr";
+            this.descr.Name = "descr";
+            this.descr.Visible = false;
             // 
             // label5
             // 
@@ -198,7 +264,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(105, 527);
+            this.label1.Location = new System.Drawing.Point(101, 480);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(667, 25);
             this.label1.TabIndex = 2;
@@ -219,14 +285,14 @@
             this.PricePerMonth,
             this.Describe});
             this.areasDataGridView.DataSource = this.areasBindingSource;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.areasDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.areasDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.areasDataGridView.Location = new System.Drawing.Point(422, 162);
             this.areasDataGridView.Name = "areasDataGridView";
             this.areasDataGridView.Size = new System.Drawing.Size(418, 239);
@@ -300,6 +366,17 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(843, 107);
             this.panel3.TabIndex = 0;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::CourseWork.Properties.Resources.y1;
+            this.pictureBox3.Location = new System.Drawing.Point(3, 45);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(68, 62);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 4;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // closeButton
             // 
@@ -495,63 +572,6 @@
             this.tableAdapterManager.RequestsTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = CourseWork.DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::CourseWork.Properties.Resources.y1;
-            this.pictureBox3.Location = new System.Drawing.Point(3, 45);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(68, 62);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 4;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
-            // 
-            // id_a
-            // 
-            this.id_a.HeaderText = "id_a";
-            this.id_a.Name = "id_a";
-            this.id_a.Visible = false;
-            // 
-            // id_own
-            // 
-            this.id_own.HeaderText = "id_own";
-            this.id_own.Name = "id_own";
-            this.id_own.Visible = false;
-            // 
-            // Area_Name
-            // 
-            this.Area_Name.HeaderText = "Area_Name";
-            this.Area_Name.Name = "Area_Name";
-            // 
-            // roomsAmount
-            // 
-            this.roomsAmount.HeaderText = "roomsAmount";
-            this.roomsAmount.Name = "roomsAmount";
-            // 
-            // square
-            // 
-            this.square.HeaderText = "square";
-            this.square.Name = "square";
-            // 
-            // price_perMonth
-            // 
-            this.price_perMonth.HeaderText = "price_perMonth";
-            this.price_perMonth.Name = "price_perMonth";
-            // 
-            // Accept
-            // 
-            this.Accept.HeaderText = "Accept";
-            this.Accept.Name = "Accept";
-            this.Accept.ReadOnly = true;
-            this.Accept.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Accept.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // descr
-            // 
-            this.descr.HeaderText = "descr";
-            this.descr.Name = "descr";
-            this.descr.Visible = false;
-            // 
             // MainFormRenters
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -577,12 +597,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.DataSet)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.areasBindingNavigator)).EndInit();
             this.areasBindingNavigator.ResumeLayout(false);
             this.areasBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -639,5 +659,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn price_perMonth;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Accept;
         private System.Windows.Forms.DataGridViewTextBoxColumn descr;
+        private System.Windows.Forms.Button buttonAddRequest;
     }
 }

@@ -132,5 +132,12 @@ namespace CourseWork
             LoginForm logForm = new LoginForm();
             logForm.Show();
         }
+
+        private void buttonAddArea_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AddObject addobj = new AddObject();
+            addobj.Show();
+        }
     }
 }
