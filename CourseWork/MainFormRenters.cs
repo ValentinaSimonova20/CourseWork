@@ -221,5 +221,33 @@ namespace CourseWork
             AddObject addobj = new AddObject();
             addobj.Show();
         }
+
+        private void Contract_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ContractsForm contrsForm = new ContractsForm();
+            contrsForm.Show();
+        }
+
+        private void areasDataGridView_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            CurrencyManager currencyManager = (CurrencyManager)BindingContext[areasDataGridView.DataSource];
+            currencyManager.SuspendBinding();
+            if (checkBox1.Checked)
+            {
+                for (int u = 0; u < areasDataGridView.RowCount - 1; u++)
+                {
+                    if (data.Contains(areasDataGridView.Rows[u].Cells[0].Value.ToString()))
+                    {
+                        areasDataGridView.Rows[u].Visible = true;
+                    }
+                    else
+                    {
+                        areasDataGridView.Rows[u].Visible = false;
+                    }
+                }
+            }
+            currencyManager.ResumeBinding();
+        }
     }
 }

@@ -63,6 +63,12 @@
     <Compile Include="ClientRequests.Designer.cs">
       <DependentUpon>ClientRequests.cs</DependentUpon>
     </Compile>
+    <Compile Include="ContractsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ContractsForm.Designer.cs">
+      <DependentUpon>ContractsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -106,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ClientRequests.resx">
       <DependentUpon>ClientRequests.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ContractsForm.resx">
+      <DependentUpon>ContractsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Extended_inf.resx">
       <DependentUpon>Extended_inf.cs</DependentUpon>
