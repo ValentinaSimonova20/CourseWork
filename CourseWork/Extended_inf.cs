@@ -31,6 +31,7 @@ namespace CourseWork
             else
             {
                 AreasComboBox.Visible = false;
+                label2.Visible = false;
             }
 
             
@@ -125,7 +126,7 @@ namespace CourseWork
                 labelDesires.Text = "Пожелания заказчика:";
             }
 
-            if (SelectedArea.areaType == "request" || (SelectedArea.areaType== "UsersRequest" && SelectedArea.accept==true))
+            if (SelectedArea.areaType == "request" || (SelectedArea.areaType== "UsersRequest" && SelectedArea.accept==true && Client1.role!="Owners"))
             {
                 buttonSendRequest.Text = "Принять заявку и оплатить";
                 label1.Text = "Оплата";
@@ -149,11 +150,21 @@ namespace CourseWork
                 commandCheck.Parameters.Add("@own_id", OleDbType.Integer).Value = SelectedArea.person_id;
                 commandCheck.Parameters.Add("@rent_id", OleDbType.Integer).Value = Client1.id;
                 commandCheck.Parameters.Add("@area_id", OleDbType.Integer).Value = SelectedArea.area_id;
+
+                
+                OleDbCommand commandUpdAccept = new OleDbCommand("Update Requests SET Accept=true WHERE Owner_id=@own_id AND Renter_id=@rent_id AND Area_id=@area_id", db.getConnection());
+                commandUpdAccept.Parameters.Add("@own_id", OleDbType.Integer).Value = SelectedArea.person_id;
+                commandUpdAccept.Parameters.Add("@rent_id", OleDbType.Integer).Value = Client1.id;
+                commandUpdAccept.Parameters.Add("@area_id", OleDbType.Integer).Value = SelectedArea.area_id;
+
+                
+
                 OleDbDataAdapter adapter = new OleDbDataAdapter();
                 DataTable table = new DataTable();
                 adapter.SelectCommand = commandCheck;
                 adapter.Fill(table);
                 
+
 
                 if (table.Rows.Count > 0)
                 {
@@ -163,7 +174,7 @@ namespace CourseWork
                 else
                 {
                     db.openConnection();
-                    if (command.ExecuteNonQuery() == 1)
+                    if (command.ExecuteNonQuery() == 1 && commandUpdAccept.ExecuteNonQuery() == 1)
                         MessageBox.Show("Площадь оплачена. Подождите пока с вами свяжется владелец");
                     else
                         MessageBox.Show("Error");
@@ -177,7 +188,7 @@ namespace CourseWork
             {
                 if (Client1.role == "Owners")
                 {
-                    MessageBox.Show(string.Join(" ", data[AreasComboBox.SelectedIndex]));
+
                     String ClientRole = Client1.role;
                     int objectId = SelectedArea.area_id; // Если пользователь Owner, то objectId - ID запроса пользователя. Если пользователь renter, то object_id - id помещения 
                     int Role_Login = Client1.id;
@@ -185,7 +196,7 @@ namespace CourseWork
 
 
                     //Проверяем подавал ли пользователь уже эту заявку
-                    OleDbCommand command1 = new OleDbCommand("SELECT * FROM Requests WHERE Renter_id = @r_id AND Owner_id= @o_id AND Area_id=@a_id AND Requests_initiatair=@r_i", db.getConnection());
+                    OleDbCommand command1 = new OleDbCommand("SELECT * FROM Requests WHERE Renter_id = @r_id AND Owner_id= @o_id AND Area_id=@a_id", db.getConnection());
 
                     command1.Parameters.Add("@r_id", OleDbType.Integer).Value = SelectedArea.person_id;
                     command1.Parameters.Add("@o_id", OleDbType.Integer).Value = Client1.id;
@@ -199,26 +210,43 @@ namespace CourseWork
 
                     if (table.Rows.Count > 0)
                     {
-                        MessageBox.Show("Вы уже подавали заявку c данной площадью данному пользователю.");
+                        MessageBox.Show("Данная заявка клиенту с данной площадью уже существует.");
                     }
                     else
                     {
+                        OleDbCommand commandCheck2 = new OleDbCommand("SELECT * FROM Contracts WHERE Owner_id=@own_id AND Renter_id=@rent_id AND Area_id=@area_id", db.getConnection());
+                        commandCheck2.Parameters.Add("@own_id", OleDbType.Integer).Value = SelectedArea.person_id;
+                        commandCheck2.Parameters.Add("@rent_id", OleDbType.Integer).Value = Client1.id;
+                        commandCheck2.Parameters.Add("@area_id", OleDbType.Integer).Value = SelectedArea.area_id;
+                        DataTable table2 = new DataTable();
+                        OleDbDataAdapter adapter2 = new OleDbDataAdapter();
+                        adapter2.SelectCommand = command1;//выполняем команду
+                        adapter2.Fill(table2);//все полученные данные трансформируем внутрь объекта table
 
-                        OleDbCommand command2 = new OleDbCommand("INSERT INTO Requests ([Accept],[Area_id],[Renter_id],[Owner_id],[Requests_initiatair] ) VALUES (@accept, @a_id, @r_id, @o_id,@r_i)", db.getConnection());
-                        command2.Parameters.Add("@accept", OleDbType.Boolean).Value = false;
-                        command2.Parameters.Add("@a_id", OleDbType.Integer).Value = data[AreasComboBox.SelectedIndex][0];
-                        command2.Parameters.Add("@r_id", OleDbType.Integer).Value = SelectedArea.person_id;
-                        command2.Parameters.Add("@o_id", OleDbType.VarChar).Value = Client1.id;
-                        command2.Parameters.Add("@r_i", OleDbType.VarChar).Value = Client1.role;
-
-                        db.openConnection();
-
-                        if (command2.ExecuteNonQuery() == 1)
-                            MessageBox.Show("Ваша заявка отправлена. Дождитесь ответа от данного пользователя.");
+                        if (table2.Rows.Count > 0)
+                        {
+                            MessageBox.Show("У вас уже оплачен контракт на данную площадь");
+                        }
                         else
-                            MessageBox.Show("Произошла ошибка.");
+                        {
 
-                        db.closeConnection();
+
+                            OleDbCommand command2 = new OleDbCommand("INSERT INTO Requests ([Accept],[Area_id],[Renter_id],[Owner_id],[Requests_initiatair] ) VALUES (@accept, @a_id, @r_id, @o_id,@r_i)", db.getConnection());
+                            command2.Parameters.Add("@accept", OleDbType.Boolean).Value = false;
+                            command2.Parameters.Add("@a_id", OleDbType.Integer).Value = data[AreasComboBox.SelectedIndex][0];
+                            command2.Parameters.Add("@r_id", OleDbType.Integer).Value = SelectedArea.person_id;
+                            command2.Parameters.Add("@o_id", OleDbType.VarChar).Value = Client1.id;
+                            command2.Parameters.Add("@r_i", OleDbType.VarChar).Value = Client1.role;
+
+                            db.openConnection();
+
+                            if (command2.ExecuteNonQuery() == 1)
+                                MessageBox.Show("Ваша заявка отправлена. Дождитесь ответа от данного пользователя.");
+                            else
+                                MessageBox.Show("Произошла ошибка.");
+
+                            db.closeConnection();
+                        }
                     }
                 }
                 else
